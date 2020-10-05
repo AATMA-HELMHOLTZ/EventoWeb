@@ -2,16 +2,18 @@ var mongoose                = require("mongoose");
 var passportLocalMongoose   = require("passport-local-mongoose");
 
 
-var UserSchema = new mongoose.Schema({
-    username: String, 
+var VendorSchema = new mongoose.Schema({
+    name: String, 
     password: String,
-    img: 
+    service: String, 
+    description: String,
+    display_picture: 
     { 
         data: Buffer, 
         contentType: String,
         default: "/assets/default_img.png"
     },
-    city: String, 
+    cities: Array, 
     email: String, 
     number: String,
     rating: Number
@@ -19,5 +21,5 @@ var UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Vendor", VendorSchema);
 
