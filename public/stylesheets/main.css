@@ -1,0 +1,55 @@
+header{
+    background: url("evento2.jpeg") fixed  center no-repeat ;
+    background-size: cover;
+    height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 11vh;
+}
+
+footer{
+    background: #FFF6D8;
+}
+
+.titles{
+    font-size: 2.5rem;
+    padding-left: 4rem;
+    border-bottom: solid 4px #FFF6D8 ;
+    width: 25rem;
+    border-spacing: 10px;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    box-shadow: #FDEFA9;
+}
+
+
+/*Event packages*/
+
+.pack {
+    margin-left: 4rem;
+    box-shadow: black;
+}
+
+
+/*Event packages*/
+.pack{
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+/*Vendor cards*/
+
+.col{
+    padding-top: 1.5vh;
+    padding-bottom: 3vh;
+}
+
+/*Search bar*/
+
+.form-control::placeholder {
+    font-size: 0.882rem;
+    color: #aaa;
+    font-style: italic;
+}
