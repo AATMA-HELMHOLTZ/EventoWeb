@@ -19,25 +19,138 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f624f51b-dc3f-43b5-8a7d-e65cb7fde843" name="Default Changelist" comment="" />
+    <list default="true" id="f624f51b-dc3f-43b5-8a7d-e65cb7fde843" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/stylesheets/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/stylesheets/pexels-cottonbro-3171837.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/stylesheets/signup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/material-icon/css/material-design-iconic-font.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/material-icon/css/material-design-iconic-font.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/material-icon/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/material-icon/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/material-icon/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-300italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-500italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-600.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-600.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-600.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-600.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-600.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-700italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-800italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/poppins-v5-latin-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-700italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fonts/poppins/roboto-condensed-v16-latin-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.ejs" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iRlUdFR81S6bAfUV4I15DWRqkx" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webapp_evento" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,12 +160,20 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.signup.html">
     <configuration name="index.ejs" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EventoWeb/views/index.ejs" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EventoWeb/views/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="signup.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EventoWeb/views/signup.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.signup.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.index.ejs" />
       </list>
     </recent_temporary>
@@ -66,7 +187,9 @@
       <option name="presentableId" value="Default" />
       <updated>1601878302680</updated>
       <workItem from="1601878304415" duration="1355000" />
-      <workItem from="1601891971994" duration="1053000" />
+      <workItem from="1601891971994" duration="1392000" />
+      <workItem from="1601975644000" duration="143000" />
+      <workItem from="1603381987930" duration="4778000" />
     </task>
     <servers />
   </component>
@@ -84,6 +207,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1601891982515">

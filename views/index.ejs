@@ -5,17 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!--Josefin sans  -->
+    <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+
     <!--Font awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--GLIDER CSS-->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/glider.min.css">
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/glider.min.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- My css -->
-    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="public/stylesheets/main.css">
 
     <title>Evento</title>
 </head>
@@ -23,7 +26,7 @@
 <body>
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top">
+    <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top scrolling-navbar ">
         <a class="navbar-brand" href="#">EVENTO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
             <span class="navbar-toggler-icon"></span>
@@ -43,22 +46,20 @@
 
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login"><span class="fa fa-user"></span> Sign Up</a>
+                    <a class="nav-link" href=""><span class="fa fa-user"></span> User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
+                    <a class="nav-link" href="login.ejs"><span class="fa fa-sign-out"></span> Logout</a>
                 </li>
             </ul>
         </div>
     </nav>
     <!--END OF NAVBAR-->
     <header>
-        <form action="">
-            <div class="input-group mb-100">
-                <label>
+        <form action="" >
+            <div class="input-group input-group-lg mb-100">
                     <input type="search" placeholder="Vendors, Venues and more" aria-describedby="button-addon5" class="form-control">
-                </label>
-                <div class="input-group-append">
+                <div class="input-group-append" >
                     <button id="button-addon5" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </div>
             </div>
@@ -67,7 +68,6 @@
 <!--    End of text in container-->
 
 <!--Cards Carousel - Event pack-->
-
     <div class="glider-contain multiple">
         <h3 class="titles">Event Packages</h3>
         <button class="glider-prev" style="padding-left: 2rem">
@@ -77,7 +77,7 @@
         <div class="glider">
             <a href="#"  class="pack">
                 <div class="card" style="width: 23rem;">
-                    <img src="/assets/pexels-cottonbro-3171837.jpg" class="card-img-top" alt="...">
+                    <img src="public/assets/pexels-photo-3171770.jpeg" class="card-img-top" alt="..."  style="height: 30.55rem">
                     <div class="card-body">
                         <h4 class="card-title" style="color: black">Farewell Celebration</h4>
                     </div>
@@ -87,7 +87,7 @@
 
             <a href="#"  class="pack">
                 <div class="card" style="width: 23rem;">
-                    <img src="/assets/pexels-melissa-698907.jpg" class="card-img-top" alt="..." style="height: 15.4rem">
+                    <img src="public/assets/pexels-melissa-698907.jpg" class="card-img-top" alt="..." >
                     <div class="card-body">
                         <h4 class="card-title" style="color: black">Birthday Party</h4>
                     </div>
@@ -97,7 +97,7 @@
 
             <a href="#"  class="pack">
                 <div class="card" style="width: 23rem;">
-                    <img src="/assets/ted.jpg" class="card-img-top" alt="..." style="height: 15.4rem">
+                    <img src="public/assets/ted.jpg" class="card-img-top" alt="..." style="height: 30.55rem">
                     <div class="card-body">
                         <h4 class="card-title" style="color: black">TedX event</h4>
                     </div>
@@ -107,7 +107,7 @@
 
             <a href="#"  class="pack">
                 <div class="card" style="width: 23rem;">
-                    <img src="/assets/manymore.jpg" class="card-img-top" alt="...">
+                    <img src="public/assets/pexels-photo-1317374.jpeg" class="card-img-top" alt="..."  style="height: 30.55rem">
                     <div class="card-body">
                         <h4 class="card-title" style="color: black">Festive celebration</h4>
                     </div>
@@ -116,7 +116,7 @@
 
             <a href="#"  class="pack">
                 <div class="card" style="width: 23rem;">
-                    <img src="/assets/Anniversary.jpg" class="card-img-top" alt="..." style="height: 15.4rem">
+                    <img src="public/assets/Anniversary.jpg" class="card-img-top" alt="..."  style="height: 30.55rem">
                     <div class="card-body">
                         <h4 class="card-title" style="color: black">Anniversary celebration</h4>
                     </div>
@@ -133,14 +133,13 @@
 
     </div>
 
-
 <!-- vendor cards-->
     <h3 class="titles">Services</h3>
 <div class="container">
     <div class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/assets/dj.png" alt="Card image cap">
+        <img class="card-img-top" src="public/assets/dj.png" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">DJ</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -150,7 +149,7 @@
         </div>
         <div class="col col-sm-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/assets/florist.png" alt="Card image cap">
+        <img class="card-img-top" src="public/assets/florist.png" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Florist</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -160,7 +159,7 @@
         </div>
         <div class="col col-sm-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/assets/catering.png" alt="Card image cap">
+        <img class="card-img-top" src="public/assets/catering.png" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Catering</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -170,9 +169,9 @@
         </div>
         <div class="col col-sm-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/assets/bakery.png" alt="Card image cap">
+        <img class="card-img-top" src="public/assets/bakery.png" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Backery</h5>
+            <h5 class="card-title">Bakery</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
@@ -180,7 +179,7 @@
         </div>
         <div class="col col-sm-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/assets/deco.png" alt="Card image cap">
+        <img class="card-img-top" src="public/assets/deco.png" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Decorators</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -190,7 +189,7 @@
         </div>
         <div class="col col-sm-12 col-md-6 col-lg-4">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="/assets/photog.png" alt="Card image cap">
+                <img class="card-img-top" src="public/assets/photog.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Photographer</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -276,9 +275,8 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-<!--    <div class="footer-copyright text-center py-3">© 2020 Copyright:-->
-    <div class="footer-copyright text-center py-3">
-        <a href="https://antriksh-malik.github.io/team-helmholtz/">Team Helmholtz</a>
+    <div class="footer-copyright text-center py-3">a project by:
+        <a href="https://antriksh-malik.github.io/team-helmholtz/"> Team Helmholtz</a>
     </div>
     <!-- Copyright -->
 
@@ -296,9 +294,9 @@
 
 
     <!-- Glider JS  -->
-    <script src="/js/glider.min.js"></script>
+    <script src="public/js/glider.min.js"></script>
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="public/js/main.js"></script>
 
 </body>
 </html>
