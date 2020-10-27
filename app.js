@@ -1,4 +1,5 @@
 //  REQUIRING DEPENDANCIES
+require('dotenv').config();
 const   express                 = require("express"),
         bodyParser              = require("body-parser"), 
         mongoose                = require("mongoose"), 
@@ -17,9 +18,10 @@ const   express                 = require("express"),
 app.use(express.static(__dirname + "/public"));             //Custom CSS + JS
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs")                               //use .ejs as defualt extension
-
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
 //CONNECT MONGODB
-mongoose.connect('mongodb://localhost:27017/evento', {    
+mongoose.connect(process.env.url, {    
     useNewUrlParser: true, 
     useUnifiedTopology: true
 })
