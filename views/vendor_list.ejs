@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Josefin sans  -->
+    <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!--GLIDER CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!--    My CSS-->
+    <link rel="stylesheet" href="css/vendor.css">
+    <meta charset="UTF-8">
+    <title>Vendor</title>
+</head>
+<body>
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-md bg-light navbar-light sticky-top scrolling-navbar ">
+    <a class="navbar-brand" href="index.html" style="padding-right: 4rem">EVENTO</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navb" class="navbar-collapse collapse hide">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="register_vendor.ejs">Register as vendor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact us</a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href=""><span class="fa fa-user"></span> User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.ejs"><span class="fa fa-sign-out"></span> Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--End of navbar-->
+
+<!--Side bar-->
+<div class="sidenav">
+    <form action="" >
+        <div class="input-group input-group-sm mb-100">
+            <input type="search" placeholder="Photographers" aria-describedby="button-addon5" class="form-control">
+            <div class="input-group-append" >
+                <button  type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+
+   <div class="rating_sort">
+       <h4 style="padding-bottom: 1rem">Avg. Customer Review : </h4>
+       <section>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <a href=""> and above</a>
+       </section>
+
+       <section>
+           <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <a href=""> and above</a>
+       </section>
+
+       <section>
+           <i class="fa fa-star"></i><i class="fa fa-star"></i> <a href=""> and above</a>
+       </section>
+
+       <section>
+           <i class="fa fa-star"></i> <a href=""> and above</a>
+       </section>
+
+       <div>
+           <a href="">
+           <h4 style="padding-top: 5rem">
+               Go to your cart <i class="fa fa-shopping-cart" style="font-size: 3rem"></i>
+           </h4>
+           </a>
+       </div>
+
+   </div>
+</div>
+
+
+
+<section id="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Tasveer Photographer</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/2060240/pexels-photo-2060240.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Awesome Photographers</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1043902/pexels-photo-1043902.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Clicks By Oza</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Tasveer Photographer</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/2060240/pexels-photo-2060240.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Awesome Photographers</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1043902/pexels-photo-1043902.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Clicks By Oza</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+
+       <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Tasveer Photographer</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/2060240/pexels-photo-2060240.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Awesome Photographers</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1043902/pexels-photo-1043902.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Clicks By Oza</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+
+       <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Tasveer Photographer</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/2060240/pexels-photo-2060240.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Awesome Photographers</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-4">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1043902/pexels-photo-1043902.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Clicks By Oza</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">Check em out</a>
+                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
