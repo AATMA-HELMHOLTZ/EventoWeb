@@ -1,0 +1,60 @@
+body{
+    background: #FFFEE5;
+    font-family: "Josefin Sans";
+}
+nav{
+   margin-bottom: 3rem;
+}
+.container{
+    padding-left: 7.5rem;
+}
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 15.62rem; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #fbf5c9; /* Footer waale yellow */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+/* The navigation menu links */
+form{
+    margin-top: 5rem;
+    width: 12rem;
+    margin-left: 2rem;
+}
+
+.form-control::placeholder {
+    font-size: 1rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.sidenav a {
+    text-decoration: none;
+    color: black;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: gray;
+}
+.rating_sort{
+    padding-top: 5rem;
+    padding-left: 1rem;
+}
+
+.rating_sort .fa {
+    color: yellow;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: yellow;
+    border: yellow;
+}
+
+

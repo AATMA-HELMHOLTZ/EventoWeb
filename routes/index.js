@@ -186,5 +186,9 @@ router.get("/profile/:uid", function(req, res){
 });
 
 router.get("/logout", function(req, res){
-            res.render("login" );
+        res.render("login" );
+});
+
+router.get("/list", function(req, res){
+    res.render("login" );
 });
