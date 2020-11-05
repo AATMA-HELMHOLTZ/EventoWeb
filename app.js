@@ -3,12 +3,7 @@ require('dotenv').config();
 const   express                 = require("express"),
         bodyParser              = require("body-parser"), 
         mongoose                = require("mongoose"), 
-        passport                = require("passport"),
-        passportLocalMongoose   = require("passport-local-mongoose"),
-        localStrategy           = require("passport-local"), 
         methodOverride          = require("method-override"),
-        User                    = require("./models/user"),
-        Vendor                  = require("./models/vendor"), 
         flash                   = require("connect-flash"); 
 
  const app = express();
@@ -23,24 +18,18 @@ app.use(express.json());
 //CONNECT MONGODB
 mongoose.connect(process.env.url, {    
     useNewUrlParser: true, 
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex:true
 })
 .then(() => console.log("connected to db"))
 .catch(() => console.log(error.message));
 mongoose.set('useFindAndModify', false);
 
-//SETTING UP PASSPORTJS
-app.use(require("express-session")({
-    secret: "Rusty is the cutest", 
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
-// passport.use(new localStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+});
+
 
 app.use(indexRoutes);
 
