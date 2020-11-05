@@ -5,30 +5,22 @@ const {check} = require('express-validator');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
+const imgModel = require("../models/imgModel")
 const RequestError = require("../middleware/request-error");
-const path = require("path");
+const   fs                      = require('fs'),
+        path                    = require('path'),
+        multer                  = require('multer'); 
 
-
-const uploadFile = async (req, res) => {
-  try {
-    await upload(req, res);
-
-    console.log(req.file);
-    if (req.file == undefined) {
-      return res.send(`You must select a file.`);
-    }
-
-    return res.send(`File has been uploaded.`);
-  } catch (error) {
-    console.log(error);
-    return res.send(`Error when trying upload image: ${error}`);
-  }
-};
-
-router.get("/upload", function(req, res){
-    res.render("uploader")
-});
-router.post("/upload", uploadFile);
+var storage = multer.diskStorage({ 
+    destination: (req, file, cb) => { 
+        cb(null, 'uploads') 
+    }, 
+    filename: (req, file, cb) => { 
+        cb(null, file.fieldname + '-' + Date.now()) 
+    } 
+}); 
+          
+var upload = multer({ storage: storage });
 
 const validationResult = require("express-validator").validationResult;
 const signUp = async (req, res, next) => {
@@ -75,74 +67,6 @@ const signUp = async (req, res, next) => {
     email,
         // image: 'https://win75.herokuapp.com/' + filePath,
         password: hashedPassword
-    });
-
-    await createdUser.save();
-    let token;
-    try {
-        token = jwt.sign(
-            {userId: createdUser.id, email: createdUser.email},
-            process.env.Jwt_Key, {
-                expiresIn: '2d' // expires in 2d
-            }
-        );
-    } catch (err) {
-        const error = new RequestError('Signing up failed, please try again later.', 500, err);
-        return next(error);
-    }
-
-    await res.status(201);
-    await res.redirect("/");
-}
-
-const reg_vendor = async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        let params = "";
-        errors.array().forEach((e) => {
-            params += `${e.param}, `
-        });
-        params += "triggered the error!!";
-        return next(
-            new RequestError(params, 422)
-        );
-    }
-    const {name, phone, city, service, email, password, description} = req.body;
-    let existingUser;
-    try {
-        existingUser = await User.findOne({email: email});
-    } catch (err) {
-        const error = new RequestError("Error querying database", 500, err);
-        return next(error);
-    }
-     console.log(existingUser)
-    if (existingUser) {
-        // console.log("in here")
-        const error = new RequestError('User exists already, please login instead.', 422);
-        req.flash("error","User exists already, please login instead")
-        res.redirect("/login")
-        return next(error);
-    }
-
-    let hashedPassword;
-    console.log({name, phone, city, service, email, password, description})
-    const saltRounds = 12
-    try {
-        hashedPassword = await bcrypt.hash(password, 12);
-    } catch (err) {
-        const error = new RequestError('Could not create user, please try again.', 500, err);
-        return next(error);
-    }
-    
-    const createdUser = new User({
-    email,
-        // image: 'https://win75.herokuapp.com/' + filePath,
-        password: hashedPassword,
-        name, 
-        phone, 
-        city, 
-        service, 
-        description 
     });
 
     await createdUser.save();
@@ -291,11 +215,6 @@ router.get("/:id/edit",function(req, res){
     });
 });
 
-router.get("/vendorsign", function(req, res){
-    res.render("register_vendor" );
-});
-
-router.post("/vendorsign", reg_vendor)
 
 router.put("/:id/edit", function(req, res){
     User.findOneAndUpdate({_id: req.params.id}, req.body.user, function(err, updated){
@@ -305,4 +224,36 @@ router.put("/:id/edit", function(req, res){
             res.redirect("/profile/" + req.params.id);
         }
     });
+});
+
+router.get('/upload', (req, res) => { 
+    imgModel.find({}, (err, items) => { 
+        if (err) { 
+            console.log(err); 
+        } 
+        else { 
+            res.render('uploader', { items: items }); 
+        } 
+    }); 
+});
+
+router.post('/upload', upload.single('image'), (req, res, next) => { 
+  
+    var obj = { 
+        name: req.body.name, 
+        desc: req.body.desc, 
+        img: { 
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)), 
+            contentType: 'image/png'
+        } 
+    } 
+    imgModel.create(obj, (err, item) => { 
+        if (err) { 
+            console.log(err); 
+        } 
+        else { 
+            // item.save(); 
+            res.redirect('/upload'); 
+        } 
+    }); 
 });

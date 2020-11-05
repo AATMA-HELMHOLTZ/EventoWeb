@@ -11,6 +11,11 @@ const UserSchema = new mongoose.Schema({
     password: {type: String, required: true, minlength: 6},
     mobile: {type: Number, required:false, minlength:10 },
     city: {type: String, default:'Delhi'},
+    img: 
+    { 
+        data: Buffer, 
+        contentType: String 
+    }
     // prevOreder: [{ref: order}]
 })
 
