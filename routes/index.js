@@ -6,29 +6,6 @@ const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
 const RequestError = require("../middleware/request-error");
-const path = require("path");
-
-
-const uploadFile = async (req, res) => {
-  try {
-    await upload(req, res);
-
-    console.log(req.file);
-    if (req.file == undefined) {
-      return res.send(`You must select a file.`);
-    }
-
-    return res.send(`File has been uploaded.`);
-  } catch (error) {
-    console.log(error);
-    return res.send(`Error when trying upload image: ${error}`);
-  }
-};
-
-router.get("/upload", function(req, res){
-    res.render("uploader")
-});
-router.post("/upload", uploadFile);
 
 const validationResult = require("express-validator").validationResult;
 const signUp = async (req, res, next) => {
@@ -241,23 +218,27 @@ const login = async (req, res, next) => {
     await res.redirect("/");
 };
 
-
+//HOME
 router.get("/", function(req, res){
     res.render("index");
 });
 
+//SiGNUP form show - USER
 router.get("/signup", function(req, res){
     res.render("signup");
 });
 
+//signup user
 router.post('/signup',signUp);
 
+//Login form show
 router.get("/login", function(req, res)
 {
     res.render("login")
 });
 module.exports = router;
 
+//Login user
 router.post('/login', [
     check('email')
         .not()
@@ -266,6 +247,7 @@ router.post('/login', [
 
 ], login);
 
+//View Profile
 router.get("/profile/:id", function(req, res){
     User.findById(req.params.uid, function(err, foundUser){
         if (err){
@@ -276,27 +258,20 @@ router.get("/profile/:id", function(req, res){
     })
 });
 
-router.get("/logout", function(req, res){
-        res.render("login" );
-});
 
-router.get("/list", function(req, res){
+//Show Vendor Lists
+router.get("/list/:vendor", function(req, res){
     res.render("vendor_list");
 });
 
-
+//Edit Profile
 router.get("/:id/edit",function(req, res){
     User.findById(req.params.id, function(err, user){
         res.render("edit", {user : user});
     });
 });
 
-router.get("/vendorsign", function(req, res){
-    res.render("register_vendor" );
-});
-
-router.post("/vendorsign", reg_vendor)
-
+//Edit Profile - login and put req
 router.put("/:id/edit", function(req, res){
     User.findOneAndUpdate({_id: req.params.id}, req.body.user, function(err, updated){
         if (err){
@@ -305,4 +280,18 @@ router.put("/:id/edit", function(req, res){
             res.redirect("/profile/" + req.params.id);
         }
     });
+});
+
+
+//SignUp as vendor
+router.get("/vendorsign", function(req, res){
+    res.render("register_vendor" );
+});
+
+//Register the vendor
+router.post("/vendorsign", reg_vendor)
+
+//Logout
+router.get("/logout", function(req, res){
+    res.render("login" );
 });
