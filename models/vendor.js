@@ -1,22 +1,18 @@
 var mongoose                = require("mongoose");
-var passportLocalMongoose   = require("passport-local-mongoose");
+var uniqueValidator = require('mongoose-unique-validator');
 
 
-var VendorSchema = new mongoose.Schema({
-    name: String, 
-    password: String,
-    service: String, //drop-down list 
-    description: String,
-    // display_picture: 
-    // { 
-    //     data: Buffer, 
-    //     contentType: String,
-    //     // default: "/assets/default_img.png"
-    // },
-    cities: Array, 
-    email: String, 
-    number: String,
-    rating: Number
+
+const VendorSchema = new mongoose.Schema({
+    name: {type: String} ,
+    minPrice: {type: Number},
+    image: {type: String},
+    email: {type: String},
+    phone: {type:Number},
+    review: {type:String},
+    rating: {type: Number},
+    city: {type: String},
+    password: {type: String}
 })
 
 VendorSchema.plugin(passportLocalMongoose);

@@ -1,9 +1,8 @@
 body{
-    background: #FFFEE5;
     font-family: "Josefin Sans";
 }
 nav{
-   margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 .container{
     padding-left: 7.5rem;
@@ -16,7 +15,7 @@ nav{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #fbf5c9; /* Footer waale yellow */
+    background-color: #eee; /* Footer waale yellow */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
 }
@@ -49,12 +48,11 @@ form{
 }
 
 .rating_sort .fa {
-    color: yellow;
+    color: #66bfbf;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: yellow;
-    border: yellow;
+    background-color: #66bfbf;
+    border: #66bfbf;
 }
-
 

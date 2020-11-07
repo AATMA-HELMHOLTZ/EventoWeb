@@ -4,11 +4,10 @@ const   express                 = require("express"),
         bodyParser              = require("body-parser"), 
         mongoose                = require("mongoose"), 
         methodOverride          = require("method-override"),
-        flash                   = require("connect-flash"); 
+        flash                   = require("connect-flash");
+        const app = express();
 
- const app = express();
-
- var indexRoutes                = require("./routes/index");
+var indexRoutes                = require("./routes/index");
 
 app.use(express.static(__dirname + "/public"));             //Custom CSS + JS
 app.use(methodOverride("_method"));

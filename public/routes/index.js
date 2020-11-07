@@ -5,7 +5,22 @@ const {check} = require('express-validator');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
+const imgModel = require("../models/imgModel")
 const RequestError = require("../middleware/request-error");
+const   fs                      = require('fs'),
+        path                    = require('path'),
+        multer                  = require('multer'); 
+
+var storage = multer.diskStorage({ 
+    destination: (req, file, cb) => { 
+        cb(null, 'uploads') 
+    }, 
+    filename: (req, file, cb) => { 
+        cb(null, file.fieldname + '-' + Date.now()) 
+    } 
+}); 
+          
+var upload = multer({ storage: storage });
 
 const validationResult = require("express-validator").validationResult;
 const signUp = async (req, res, next) => {
@@ -52,74 +67,6 @@ const signUp = async (req, res, next) => {
     email,
         // image: 'https://win75.herokuapp.com/' + filePath,
         password: hashedPassword
-    });
-
-    await createdUser.save();
-    let token;
-    try {
-        token = jwt.sign(
-            {userId: createdUser.id, email: createdUser.email},
-            process.env.Jwt_Key, {
-                expiresIn: '2d' // expires in 2d
-            }
-        );
-    } catch (err) {
-        const error = new RequestError('Signing up failed, please try again later.', 500, err);
-        return next(error);
-    }
-
-    await res.status(201);
-    await res.redirect("/");
-}
-
-const reg_vendor = async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        let params = "";
-        errors.array().forEach((e) => {
-            params += `${e.param}, `
-        });
-        params += "triggered the error!!";
-        return next(
-            new RequestError(params, 422)
-        );
-    }
-    const {name, phone, city, service, email, password, description} = req.body;
-    let existingUser;
-    try {
-        existingUser = await User.findOne({email: email});
-    } catch (err) {
-        const error = new RequestError("Error querying database", 500, err);
-        return next(error);
-    }
-     console.log(existingUser)
-    if (existingUser) {
-        // console.log("in here")
-        const error = new RequestError('User exists already, please login instead.', 422);
-        req.flash("error","User exists already, please login instead")
-        res.redirect("/login")
-        return next(error);
-    }
-
-    let hashedPassword;
-    console.log({name, phone, city, service, email, password, description})
-    const saltRounds = 12
-    try {
-        hashedPassword = await bcrypt.hash(password, 12);
-    } catch (err) {
-        const error = new RequestError('Could not create user, please try again.', 500, err);
-        return next(error);
-    }
-    
-    const createdUser = new User({
-    email,
-        // image: 'https://win75.herokuapp.com/' + filePath,
-        password: hashedPassword,
-        name, 
-        phone, 
-        city, 
-        service, 
-        description 
     });
 
     await createdUser.save();
@@ -218,27 +165,23 @@ const login = async (req, res, next) => {
     await res.redirect("/");
 };
 
-//HOME
+
 router.get("/", function(req, res){
     res.render("index");
 });
 
-//SiGNUP form show - USER
 router.get("/signup", function(req, res){
     res.render("signup");
 });
 
-//signup user
 router.post('/signup',signUp);
 
-//Login form show
 router.get("/login", function(req, res)
 {
     res.render("login")
 });
 module.exports = router;
 
-//Login user
 router.post('/login', [
     check('email')
         .not()
@@ -247,7 +190,6 @@ router.post('/login', [
 
 ], login);
 
-//View Profile
 router.get("/profile/:id", function(req, res){
     User.findById(req.params.uid, function(err, foundUser){
         if (err){
@@ -258,20 +200,22 @@ router.get("/profile/:id", function(req, res){
     })
 });
 
+router.get("/logout", function(req, res){
+        res.render("login" );
+});
 
-//Show Vendor Lists
-router.get("/list/:vendor", function(req, res){
+router.get("/list", function(req, res){
     res.render("vendor_list");
 });
 
-//Edit Profile
+
 router.get("/:id/edit",function(req, res){
     User.findById(req.params.id, function(err, user){
         res.render("edit", {user : user});
     });
 });
 
-//Edit Profile - login and put req
+
 router.put("/:id/edit", function(req, res){
     User.findOneAndUpdate({_id: req.params.id}, req.body.user, function(err, updated){
         if (err){
@@ -282,16 +226,34 @@ router.put("/:id/edit", function(req, res){
     });
 });
 
-
-//SignUp as vendor
-router.get("/vendorsign", function(req, res){
-    res.render("register_vendor" );
+router.get('/upload', (req, res) => { 
+    imgModel.find({}, (err, items) => { 
+        if (err) { 
+            console.log(err); 
+        } 
+        else { 
+            res.render('uploader', { items: items }); 
+        } 
+    }); 
 });
 
-//Register the vendor
-router.post("/vendorsign", reg_vendor)
-
-//Logout
-router.get("/logout", function(req, res){
-    res.render("login" );
+router.post('/upload', upload.single('image'), (req, res, next) => { 
+  
+    var obj = { 
+        name: req.body.name, 
+        desc: req.body.desc, 
+        img: { 
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)), 
+            contentType: 'image/png'
+        } 
+    } 
+    imgModel.create(obj, (err, item) => { 
+        if (err) { 
+            console.log(err); 
+        } 
+        else { 
+            // item.save(); 
+            res.redirect('/upload'); 
+        } 
+    }); 
 });
