@@ -134,7 +134,34 @@ li.nav-item{
 .btn-primary:hover{
     background-color:  rgb(102,220,220); border-color:rgb(102,220,220);
 }
-a{
-    color: #66bfbf;
+/*Navbar*/
+#mainNavbar {
+    font-size:1.5rem;
+    font-weight: 100;
 }
 
+#mainNavbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: rgb(102,191,191);
+}
+
+#mainNavbar .nav-link {
+    color: black;
+}
+
+
+#mainNavbar .nav-link:hover {
+    color: rgb(102,191,191)
+}
+
+
+.navbar.scroll {
+    background: rgb(255, 255, 255);
+    transition: background 500ms;
+}
+
+a.btn.btn-primary
+{
+    background-color:  rgb(102,191,191); border-color:rgb(102,191,191);
+}
