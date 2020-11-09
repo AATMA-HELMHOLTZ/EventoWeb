@@ -27,6 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f624f51b-dc3f-43b5-8a7d-e65cb7fde843" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/register_vendor.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/register_vendor.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/register_vendor.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/register_vendor.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +110,7 @@
       <workItem from="1604131870591" duration="3690000" />
       <workItem from="1604377965911" duration="3514000" />
       <workItem from="1604554631405" duration="4428000" />
-      <workItem from="1604740075833" duration="13934000" />
+      <workItem from="1604740075833" duration="16990000" />
     </task>
     <servers />
   </component>

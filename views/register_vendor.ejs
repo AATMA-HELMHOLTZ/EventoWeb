@@ -23,62 +23,55 @@
 </head>
 
 <body>
-<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
-    <div class="wrapper wrapper--w680">
-        <div class="card card-1">
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">Registration Info</h2>
                 <form method="POST" action="/vendorsign">
                     <div class="input-group">
-                        <input class="input--style-1" type="text" placeholder="NAME" name="name">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name">
                     </div>
                     <div class="input-group">
-                        <input class="input--style-1" type="text" placeholder="Phone no" name="phone">
+                        <input class="input--style-2" type="text" placeholder="Phone Number" name="Phone no">
                     </div>
-                    <div class="row row-space">
-                        <div class="col-2">
-                            <div class="input-group">
-                                <div class="rs-select2 js-select-simple select--no-search">
-                                    <input type="text" name="city" list="cityname" placeholder="City">
-                                    <datalist id="cityname">
-                                        <option value="Boston">
-                                        <option value="Cambridge">
-                                    </datalist>
-                                    <div class="select-dropdown"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2"> </div>
+                    <div class="input-group">
+                        <input class="input--style-2" type="email" placeholder="E-mail" name="E-mail">
+                    </div>
+                    <div class="input-group">
+                        <input class="input--style-2" type="password" placeholder="Password" name="password">
                     </div>
                     <div class="input-group">
                         <div class="rs-select2 js-select-simple select--no-search">
-                            <input type="text" name="service" list="services" placeholder="Service Provided">
-                            <datalist id="services">
-                                <option value="DJ">
-                                <option value="Photographer">
-                            </datalist>
+                            <select name="class">
+                                <option disabled="disabled" selected="selected">Service Provided</option>
+                                <option>DJ</option>
+                                <option>Caterer</option>
+                                <option>Photographer</option>
+                            </select>
                             <div class="select-dropdown"></div>
                         </div>
                     </div>
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
-                                <input class="input--style-1" type="email" placeholder="E-mail" name="email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-space">
-                        <div class="col-2">
-                            <div class="input-group">
-                                <input class="input--style-1" type="password" placeholder="password" name="password">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="city">
+                                        <option disabled="disabled" selected="selected">City</option>
+                                        <option>Boston</option>
+                                        <option>Cambridge</option>
+                                        <option>New York</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="input-group">
-                        <input class="input--style-1" type="text" placeholder="Give a description" name="description">
+                        <input class="input--style-2" type="text" placeholder="Give a description...." name="desc">
                     </div>
-                    <div class="p-t-20">
+                    <div class="p-t-30">
                         <button class="btn btn--radius btn--green" type="submit">Register</button>
                     </div>
                 </form>
