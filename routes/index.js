@@ -5,7 +5,6 @@ const {check} = require('express-validator');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
-const Vendor = require("../models/vendor")
 const RequestError = require("../middleware/request-error");
 
 const validationResult = require("express-validator").validationResult;
@@ -86,19 +85,19 @@ const reg_vendor = async (req, res, next) => {
         );
     }
     const {name, phone, city, service, email, password, description} = req.body;
-    let existingVendor;
+    let existingUser;
     try {
-        existingVendor = await User.findOne({email: email});
+        existingUser = await User.findOne({email: email});
     } catch (err) {
         const error = new RequestError("Error querying database", 500, err);
         return next(error);
     }
-     console.log(existingVendor)
-    if (existingVendor) {
+     console.log(existingUser)
+    if (existingUser) {
         // console.log("in here")
         const error = new RequestError('User exists already, please login instead.', 422);
         req.flash("error","User exists already, please login instead")
-        res.redirect("/")
+        res.redirect("/login")
         return next(error);
     }
 
@@ -112,23 +111,22 @@ const reg_vendor = async (req, res, next) => {
         return next(error);
     }
     
-    const createdVendor = new Vendor({
-        email,
+    const createdUser = new User({
+    email,
         // image: 'https://win75.herokuapp.com/' + filePath,
         password: hashedPassword,
         name, 
         phone, 
         city, 
         service, 
-        description, 
-
+        description 
     });
 
-    await createdVendor.save();
+    await createdUser.save();
     let token;
     try {
         token = jwt.sign(
-            {vendorId: createdVendor.id, email: createdVendor.email},
+            {userId: createdUser.id, email: createdUser.email},
             process.env.Jwt_Key, {
                 expiresIn: '2d' // expires in 2d
             }
@@ -263,13 +261,7 @@ router.get("/profile/:id", function(req, res){
 
 //Show Vendor Lists
 router.get("/list/:vendor", function(req, res){
-    Vendor.find({service:req.params.vendor}, function(err, vendors){
-        if(err){
-            console.log(err)
-        } else{
-            res.render("vendor_list", {vendors:vendors});
-        }
-    })
+    res.render("vendor_list");
 });
 
 //Edit Profile
@@ -287,13 +279,6 @@ router.put("/:id/edit", function(req, res){
         } else {
             res.redirect("/profile/" + req.params.id);
         }
-    });
-});
-
-
-router.get("/:vid/show",function(req, res){
-    Vendor.findById(req.params.vid, function(err, user){
-        res.render("profile_vendor", {user : user});
     });
 });
 

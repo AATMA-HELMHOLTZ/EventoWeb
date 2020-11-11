@@ -10,12 +10,12 @@ const VendorSchema = new mongoose.Schema({
     email: {type: String},
     phone: {type:Number},
     review: {type:String},
-    rating: {type: Array},
+    rating: {type: Number},
     city: {type: String},
     password: {type: String}
 })
 
-
+VendorSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("Vendor", VendorSchema);
 
