@@ -43,10 +43,6 @@ margin-top: 100px
     box-shadow: 0px 10px 10px #E0E0E0
 }
 
-li.nav-item{
-    color: #66bfbf;
-}
-
 /*Reviews tab*/
 .reviews{
     padding: 15px;
@@ -128,38 +124,6 @@ li.nav-item{
 .btn-primary:hover{
     background-color:  rgb(102,220,220); border-color:rgb(102,220,220);
 }
-/*Navbar*/
-#mainNavbar {
-    font-size:1.5rem;
-    font-weight: 100;
-}
-
-#mainNavbar .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: 100;
-    color: rgb(102,191,191);
-}
-
-#mainNavbar .nav-link {
-    color: black;
-}
-
-
-#mainNavbar .nav-link:hover {
-    color: rgb(102,191,191)
-}
-
-
-.navbar.scroll {
-    background: rgb(255, 255, 255);
-    transition: background 500ms;
-}
-
-a.btn.btn-primary
-{
-    background-color:  rgb(102,191,191); border-color:rgb(102,191,191);
-}
-
 
 .nav-tabs .nav-item{
     background-color: #66bfbf;

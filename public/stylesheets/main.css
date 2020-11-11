@@ -89,3 +89,13 @@ a.btn.btn-primary
     background-color:  rgb(102,191,191); border-color:rgb(102,191,191);
 }
 
+.card{
+    width: 18rem;  /*Have to remove this per tag in html file*/
+    transition: 0.8s;
+}
+
+.card:hover{
+    box-shadow: 3px 3px 3px 3px grey;
+}
+
+

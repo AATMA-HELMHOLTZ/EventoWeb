@@ -1,0 +1,110 @@
+body {
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+#mainNavbar {
+    font-size:1.5rem;
+    font-weight: 100;
+}
+
+#mainNavbar .navbar-brand {
+    font-size: 200%; !important;
+    color: rgb(102,191,191);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#mainNavbar .nav-link {
+    color: black;
+}
+
+
+#mainNavbar .nav-link:hover {
+    color: rgb(102,191,191)
+}
+
+
+.navbar.scroll {
+    background: rgb(255, 255, 255);
+    transition: background 500ms;
+}
+
+a.btn.btn-primary
+{
+    background-color:  rgb(102,191,191); border-color:rgb(102,191,191);
+}
+
+#gallery {
+    margin-left: 20rem;
+    margin-top: 2rem;
+}
+.card{
+    transition: 0.8s;
+}
+.card:hover{
+    box-shadow: 3px 3px 3px 3px grey;
+}
+
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 15.62rem; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #eeeeee;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+/* The navigation menu links */
+form{
+    margin-top: 5rem;
+    width: 12rem;
+    margin-left: 2rem;
+}
+
+.form-control::placeholder {
+    font-size: 1rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.sidenav a {
+    text-decoration: none;
+    color: black;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: gray;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: #66bfbf;
+}
+
+h1{
+    /*position: absolute;*/
+    /*top: 5rem;*/
+    /*left: 20rem;*/
+    margin-top: 6rem;
+    padding-left: 20rem;
+    width: 40rem;
+    border-bottom: solid 4px #66bfbf ;
+    background-color: #d9f5f5;
+}
+
+
+#logo {
+
+}
+
+#float_side{
+    position: sticky;
+    top: 50vh;
+    left: 70vw;
+}
