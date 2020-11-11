@@ -5,7 +5,9 @@ const {check} = require('express-validator');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
+const Vendor = require("../models/vendor")
 const RequestError = require("../middleware/request-error");
+const vendor = require('../models/vendor');
 
 const validationResult = require("express-validator").validationResult;
 const signUp = async (req, res, next) => {
@@ -261,7 +263,13 @@ router.get("/profile/:id", function(req, res){
 
 //Show Vendor Lists
 router.get("/list/:vendor", function(req, res){
-    res.render("vendor_list");
+    Vendor.find({service: req.params.vendor}, function(err, vendors){
+        if (err){
+            console.log(err)
+        } else{
+            res.render("vendor_list", {vendors:vendors});
+        }
+    })
 });
 
 //Edit Profile

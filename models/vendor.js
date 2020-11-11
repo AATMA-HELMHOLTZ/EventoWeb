@@ -5,17 +5,15 @@ var uniqueValidator = require('mongoose-unique-validator');
 
 const VendorSchema = new mongoose.Schema({
     name: {type: String} ,
-    minPrice: {type: Number},
-    image: {type: String},
+    img: {type: String},
     email: {type: String},
-    phone: {type:Number},
-    review: {type:String},
-    rating: {type: Number},
+    number: {type:Number},
+    ratings: {type: Array},
     city: {type: String},
-    password: {type: String}
+    service: {type:String},
+    description: {type: String}
 })
 
-VendorSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("Vendor", VendorSchema);
 

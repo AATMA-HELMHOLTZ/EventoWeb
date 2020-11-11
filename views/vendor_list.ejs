@@ -86,26 +86,30 @@
 
     </div>
 </div>
-
-
-
-<section id="gallery">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 mb-4">
-                <div class="card">
-                    <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Tasveer Photographer</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-                        <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View</a>
-                        <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+<% vendors.forEach(vendor =>{ console.log(vendor)%> 
+    <% var star, sum  = 0 %>
+    <% vendor.ratings.forEach(x =>{ %>
+        <%sum += x.star%> 
+    <% }) %>
+    <% star = sum / vendor.ratings.length %>    
+    <section id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src = <%=vendor.img%>  alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= vendor.name %> </h5>
+                            <p class="card-text"><%= vendor.description.substring(0, 100) %> </p>
+                            <a href="/show/<%=vendor._id %>" class="btn btn-outline-success btn-sm">View more</a>
+                            <button class="btn btn-outline-warning btn-sm" disabled> <%= star %>  <i class="fa fa-star"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<% }) %> 
 
 
 
