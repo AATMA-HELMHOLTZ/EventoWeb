@@ -9,7 +9,7 @@ body {
 }
 
 #mainNavbar .navbar-brand {
-    font-size: 200%; !important;
+    font-size: 200%;
     color: rgb(102,191,191);
     padding-left: 20px;
     padding-right: 20px;
@@ -96,11 +96,6 @@ h1{
     width: 40rem;
     border-bottom: solid 4px #66bfbf ;
     background-color: #d9f5f5;
-}
-
-
-#logo {
-
 }
 
 #float_side{

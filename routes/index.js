@@ -272,6 +272,19 @@ router.get("/list/:vendor", function(req, res){
     })
 });
 
+router.get("/show/:vid", function(req, res){
+    Vendor.findById(req.params.vid, function(err, vendor){
+        if (err){
+            console.log(err)
+        } else {
+            res.render("profile_vendor", {vendor:vendor})
+        }
+    })
+})
+
+router.get("/template", function(req, res){
+    res.render("event_template")
+})
 //Edit Profile
 router.get("/:id/edit",function(req, res){
     User.findById(req.params.id, function(err, user){
