@@ -7,7 +7,7 @@ const   express                 = require("express"),
         flash                   = require("connect-flash");
         const app = express();
 
-var indexRoutes                = require("./routes/index");
+var indexRoutes = require("./routes/index");
 
 app.use(express.static(__dirname + "/public"));             //Custom CSS + JS
 app.use(methodOverride("_method"));

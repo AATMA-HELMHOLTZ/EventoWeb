@@ -1,13 +1,14 @@
 const jwt = require('jsonwebtoken');
 
-const RequestError = require('../middlewares/request-error');
+const RequestError = require('./request-error');
 
 module.exports = (req, res, next) => {
     if (req.method === 'OPTIONS') {
         return next();
     }
     try {
-        const token = req.headers.authorization.split(' ')[1]; // Authorization Type: 'Bearer TOKEN'
+        console.log(req.headers)
+        const token = req.header.authorization.split(' ')[1]; // Authorization Type: 'Bearer TOKEN'
         if (!token) {
             return next(Error('Authentication failed!'));
         }

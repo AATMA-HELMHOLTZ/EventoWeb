@@ -6,6 +6,8 @@ const User = require("../models/user");
 const Vendor = require("../models/vendor")
 const userController = require("../controllers/user-controller")
 const vendorController = require("../controllers/vendor-controller")
+const checkAuth = require('../middleware/checkAuth');
+const RequestError = require("../middleware/request-error");
 
 //HOME
 router.get("/", function(req, res){
@@ -18,7 +20,7 @@ router.get("/signup", function(req, res){
 });
 
 //signup user
-router.post('/signup',userController.signup);
+router.post('/signup',userController.signUp);
 
 //Login form show
 router.get("/login", function(req, res)
@@ -34,7 +36,7 @@ router.post('/login', [
         .isEmpty(),
     check('password').isLength({min: 6}),
 
-], userControlller.login);
+], userController.login);
 
 //View Profile
 router.get("/profile/:id", function(req, res){
