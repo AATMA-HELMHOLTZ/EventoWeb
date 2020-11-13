@@ -4,13 +4,9 @@ var router = express.Router();
 const {check} = require('express-validator');
 const User = require("../models/user");
 const Vendor = require("../models/vendor")
-const userController = require("../controllers/user-controller")
-const vendorController = require("../controllers/vendor-controller")
-const checkAuth = require('../middleware/checkAuth');
-const RequestError = require("../middleware/request-error");
 
 //HOME
-router.get("/", function(req, res){
+router.get("/",function(req, res){
     res.render("index");
 });
 
@@ -20,7 +16,21 @@ router.get("/signup", function(req, res){
 });
 
 //signup user
-router.post('/signup',userController.signUp);
+router.post("/signup", function(req, res){
+    var name = {name: req.body.name};
+    User.register(name, req.body.password, function(err, newUser){
+        if(err){
+            req.flash("error", err.message)
+            console.log(err);
+            return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function(){
+            req.flash("success", "Welcome to Evento " + newUser.username)
+            res.redirect("/campgrounds");
+        });
+    });
+});
+
 
 //Login form show
 router.get("/login", function(req, res)
@@ -36,7 +46,7 @@ router.post('/login', [
         .isEmpty(),
     check('password').isLength({min: 6}),
 
-], userController.login);
+], );
 
 //View Profile
 router.get("/profile/:id", function(req, res){
