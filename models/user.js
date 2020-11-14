@@ -3,21 +3,11 @@ var passportLocalMongoose   = require("passport-local-mongoose");
 
 const UserSchema = new mongoose.Schema({
     name: {type: String, default:'User'},
-    email: {type: String,
-        required: true,
-        unique: true,
-        // match: /\S+@\S+\.\S+/
-    },
-    password: {type: String, required: true, minlength: 6},
-    password_web: {type: String, required: true, minlength: 6},
-    mobile: {type: Number, required:false, minlength:10 },
+    username: {type: String}, // Email
+    password: {type: String},
+    mobile: {type: Number, required:false, minlength:10, maxlength:10 },
     city: {type: String, default:'Delhi'},
-    img: 
-    { 
-        data: Buffer, 
-        contentType: String 
-    }
-    // prevOreder: [{ref: order}]
+    img: {type: String, default: "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"}
 })
 
 UserSchema.plugin(passportLocalMongoose);
