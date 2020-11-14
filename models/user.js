@@ -7,6 +7,8 @@ const UserSchema = new mongoose.Schema({
     password: {type: String},
     mobile: {type: Number, required:false, minlength:10, maxlength:10 },
     city: {type: String, default:'Delhi'},
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
     img: {type: String, default: "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"}
 })
 
