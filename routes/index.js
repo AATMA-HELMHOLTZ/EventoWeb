@@ -216,14 +216,21 @@ router.get("/template/:event", async function(req, res){
     var arr = []
     if (event == "birthday") {
         arr = reqd["birthday"]
+    } else if (event == "anniversary"){
+        arr = reqd["anniversary"]
+    } else if (event == "farewell"){
+        arr = reqd["farewell"]
+    } else if (event == "festive"){
+        arr = reqd["festive"]
+    } else if (event == "tedx"){
+        arr = reqd["tedx"]
     }
     console.log(arr)
-    // console.log(arr2)
-    // arr.forEach(service => {
-    //     var t = Vendor.find({service:service}).sort({"avgStar": -1});
-    //     console.log(t[0])
-    //     vendors.append(t[0])
-    // });
+    arr.forEach(service => {
+        var t = Vendor.find({service:service}).sort({"avgStar": -1});
+        console.log(t[0])
+        vendors.append(t[0])
+    });
     res.render("event_template", {})
 })
 
