@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
     city: {type: String, default:'Delhi'},
     resetPasswordToken: String,
     resetPasswordExpires: Date,
+    orders: Array, 
     img: {type: String, default: "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"}
 })
 

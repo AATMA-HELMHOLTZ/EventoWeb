@@ -9,6 +9,7 @@ const { isLoggedIn } = require('../middleware');
 const async = require("async")
 const crypto = require("crypto")
 const nodemailer = require("nodemailer")
+const Template = require("../models/template")
 
 //HOME
 router.get("/", isLoggedIn, function(req, res){
@@ -205,8 +206,25 @@ router.get("/show/:vid", isLoggedIn, function(req, res){
 })
 
 //EVENT TEMPLATES
-router.get("/template", isLoggedIn, function(req, res){
-    res.render("event_template")
+router.get("/template/:event", async function(req, res){
+    var temp = await Template.find({});
+    var event = req.params.event
+    // console.log(typeof(e))  
+    //console.log(temp[0])
+    var vendors = [];
+    var reqd = temp[0]
+    var arr = []
+    if (event == "birthday") {
+        arr = reqd["birthday"]
+    }
+    console.log(arr)
+    // console.log(arr2)
+    // arr.forEach(service => {
+    //     var t = Vendor.find({service:service}).sort({"avgStar": -1});
+    //     console.log(t[0])
+    //     vendors.append(t[0])
+    // });
+    res.render("event_template", {})
 })
 
 
@@ -236,10 +254,11 @@ router.get("/vendorsign", function(req, res){
 });
 
 
-//Register the vendor
-router.post("/vendorsign", function(req, res){
+// //Register the vendor
+// router.post("/vendorsign", function(req, res){
+//     var obj = {name: req.body.};
 
-})
+// })
 
 //LOGOUT
 router.get("/logout", function(req, res){
