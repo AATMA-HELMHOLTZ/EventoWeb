@@ -86,9 +86,10 @@
 <% vendors.forEach(vendor =>{ console.log(vendor)%> 
     <% var star, sum  = 0 %>
     <% vendor.ratings.forEach(x =>{ %>
-        <%sum += x.star%> 
+        <%sum += x.star%>  
     <% }) %>
-    <% star = sum / vendor.ratings.length %>    
+    <% star = sum / vendor.ratings.length %>
+    <% vendor.avgStar = star || 0%>    
     <section id="gallery">
         <div class="container">
             <div class="row">
@@ -99,7 +100,7 @@
                             <h5 class="card-title"><%= vendor.name %> </h5>
                             <p class="card-text"><%= vendor.description.substring(0, 100) %> </p>
                             <a href="/show/<%=vendor._id %>" class="btn btn-outline-success btn-sm">View more</a>
-                            <button class="btn btn-outline-warning btn-sm" disabled> <%= star %>  <i class="fa fa-star"></i></button>
+                            <button class="btn btn-outline-warning btn-sm" disabled> <%= vendor.avgStar %>  <i class="fa fa-star"></i></button>
                         </div>
                     </div>
                 </div>

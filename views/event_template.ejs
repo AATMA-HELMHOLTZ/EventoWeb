@@ -52,23 +52,18 @@
     </div>
 </nav>
 <!--End of navbar-->
-
 <!--Side bar-->
 <div class="sidenav">
     <nav id="navbar-example3" class="navbar navbar-light" style="margin-top: 5rem">
         <a class="navbar-brand" href="#">What you will need for <br> this event :</a>
         <nav class="nav nav-pills flex-column" >
-            <a class="nav-link" href="#item-1">Photographer</a>
-            <nav class="nav nav-pills flex-column">
-                <a class="nav-link ml-3 my-1" href="#item-1-1">Tasveer</a>
-                <a class="nav-link ml-3 my-1" href="#item-1-2">Oza</a>
-            </nav>
-            <a class="nav-link" href="#item-2">Caterer</a>
-            <a class="nav-link" href="#item-3">DJ</a>
-            <nav class="nav nav-pills flex-column">
-                <a class="nav-link ml-3 my-1" href="#item-3-1">Skrillex</a>
-                <a class="nav-link ml-3 my-1" href="#item-3-2">Hardwell</a>
-            </nav>
+            <% for( let i = 0; i < len; i++ ) { %>
+                <% var vendor = vendors[1] %> 
+                <a class="nav-link" href="#item-1"><%= vendor.service %> </a>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ml-3 my-1" href="#item-1-1"><%= vendor.name %></a>
+                </nav>
+            <% } %>
         </nav>
     </nav>
 </div>

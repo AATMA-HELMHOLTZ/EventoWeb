@@ -226,13 +226,17 @@ router.get("/template/:event", async function(req, res){
         arr = reqd["tedx"]
     }
     console.log(arr)
-    arr.forEach(service => {
-        var t = Vendor.find({service:service}).sort({"avgStar": -1});
+    for (let i = 0; i < arr.length; i++) {
+        var service = arr[i];
+        var t = await Vendor.find({service:service});
         console.log(t[0])
-        vendors.append(t[0])
+        vendors.push(t[0])
+    }
+    var len = arr.length
+    res.render("event_template", {vendors:vendors, len : len})
     });
-    res.render("event_template", {})
-})
+    
+
 
 
 //Edit Profile - show form
@@ -259,6 +263,28 @@ router.put("/:id/edit", function(req, res){
 router.get("/vendorsign", function(req, res){
     res.render("register_vendor");
 });
+
+router.post("/vendorsign", function(req, res){
+    var serv = req.body.service.toLowerCase()
+    var newVendor = {
+        name: req.body.name,
+        phone: req.body.phone,
+        email: req.body.email, 
+        service: serv,
+        city: req.body.city,
+        img: req.body.img,
+        description: req.body.desc
+    }
+    Vendor.create(newVendor, function(err, newVend){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log("created" + newVend)
+            res.redirect("/")
+        }
+    })
+})
 
 
 // //Register the vendor
