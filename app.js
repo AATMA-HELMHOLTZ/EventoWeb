@@ -21,7 +21,6 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs")                               //use .ejs as defualt extension
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cookieParser("Rusty is the cutest"));
 
 //CONNECT MONGODB
 mongoose.connect(process.env.url, {    
@@ -39,7 +38,6 @@ app.use(session({
     resave: false,
     store: sessionStore, 
     saveUninitialized: false, 
-    cookie: {maxAge: 6000}
 }));
 app.use(flash());
 app.use(passport.initialize());
