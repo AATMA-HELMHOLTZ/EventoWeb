@@ -240,10 +240,10 @@ router.get("/template/:event", async function(req, res){
 
 
 //Edit Profile - show form
-router.get("/:id/edit", isLoggedIn, function(req, res){
-    User.findById(req.params.id, function(err, user){
-        res.render("edit", {user : user});
-    });
+router.get("/profile", function(req, res){
+    // User.findById(req.params.id, function(err, user){
+        res.render("user_profile");
+    // });
 });
 
 

@@ -26,9 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f624f51b-dc3f-43b5-8a7d-e65cb7fde843" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/band.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/hospitality.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/reception-bell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/stylesheets/user_profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user_profile.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile_vendor.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile_vendor.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -64,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../robofriends" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -75,7 +80,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="JavaScript Debug.event_template.html">
+  <component name="RunManager" selected="JavaScript Debug.user_profile.html">
     <configuration name="event_template.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EventoWeb/views/event_template.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -88,8 +93,12 @@
     <configuration name="signup.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EventoWeb/views/signup.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="user_profile.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/EventoWeb/views/user_profile.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.user_profile.html" />
         <item itemvalue="JavaScript Debug.event_template.html" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.signup.html" />
@@ -117,6 +126,8 @@
       <workItem from="1604740075833" duration="9658000" />
       <workItem from="1605192275502" duration="1031000" />
       <workItem from="1605438252875" duration="645000" />
+      <workItem from="1605468063785" duration="6083000" />
+      <workItem from="1605477398007" duration="5969000" />
     </task>
     <servers />
   </component>
@@ -155,10 +166,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1604673101594" />
-    <state x="548" y="166" key="FileChooserDialogImpl" timestamp="1605192355683">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="685" y="210" key="FileChooserDialogImpl" timestamp="1605477332636">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605192355683" />
+    <state x="685" y="210" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605477332636" />
     <state width="1513" height="260" key="GridCell.Tab.0.bottom" timestamp="1603431062425">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
