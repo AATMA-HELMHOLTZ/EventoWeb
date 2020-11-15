@@ -590,3 +590,9 @@ label.valid:after {
         margin-bottom: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+select{
+    border: none;
+    padding-left: 1rem;
+    padding-right: 13rem;
+}
