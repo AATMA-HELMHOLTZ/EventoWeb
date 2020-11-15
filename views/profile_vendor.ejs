@@ -24,7 +24,7 @@
 <body style="padding-top: 50px;">
 <!--NAVBAR-->
 <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md fixed-top">
-    <a class="navbar-brand" href="#"><span class="h1">EVENTO</span></a>
+    <a class="navbar-brand" href="/"><span class="h1">EVENTO</span></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true" style="background-color: #66bfbf">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,13 +34,10 @@
                 <a class="nav-link" href="/vendorsign">Register as vendor</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/prev">Previous Successful Events</a>
+                <a class="nav-link" href="/prev">Previous Events</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/support">Support</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact us</a>
             </li>
         </ul>
 
@@ -261,5 +258,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="/js/profile_vendor.js"></script>
+<script>
+    $(function () {
+        $(document).scroll(function () {
+            var $nav = $("#mainNavbar");
+            $nav.toggleClass("scroll", $(this).scrollTop() > $nav.height());
+        });
+    });
+</script>
 </body>
 </html>

@@ -67,6 +67,8 @@ footer{
     font-size: 1.5rem;
     font-weight: 100;
     color: rgb(102,191,191);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #mainNavbar .nav-link {
