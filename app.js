@@ -10,7 +10,10 @@ var LocalStrategy           = require("passport-local");
 var methodOverride          = require("method-override");
 var flash                   = require("connect-flash");
 const { use }               = require("passport");
+var cookieParser            = require("cookie-parser")
+var session                 = require("express-session")
 
+var sessionStore = new session.MemoryStore
 var indexRoutes = require("./routes/index");
 
 app.use(express.static(__dirname + "/public"));             //Custom CSS + JS
@@ -18,6 +21,7 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs")                               //use .ejs as defualt extension
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cookieParser("Rusty is the cutest"));
 
 //CONNECT MONGODB
 mongoose.connect(process.env.url, {    
@@ -30,10 +34,12 @@ mongoose.connect(process.env.url, {
 mongoose.set('useFindAndModify', false);
 
 //PASSPORT
-app.use(require("express-session")({
+app.use(session({
     secret: "Rusty is the cutest", 
     resave: false,
-    saveUninitialized: false
+    store: sessionStore, 
+    saveUninitialized: false, 
+    cookie: {maxAge: 6000}
 }));
 app.use(flash());
 app.use(passport.initialize());
