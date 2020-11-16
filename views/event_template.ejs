@@ -52,22 +52,28 @@
     </div>
 </nav>
 <!--End of navbar-->
-<!--Side bar-->
+
+
+<!--Scrollspy-->
 <div class="sidenav">
     <nav id="navbar-example3" class="navbar navbar-light" style="margin-top: 5rem">
         <a class="navbar-brand" href="#">What you will need for <br> this event :</a>
         <nav class="nav nav-pills flex-column" >
-            <% for( let i = 0; i < len; i++ ) { %>
-                <% var vendor = vendors[i] %> 
-                <a class="nav-link" href="#item-1"><%= vendor.service %> </a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link ml-3 my-1" href="#item-1-1"><%= vendor.name %></a>
-                </nav>
-            
+            <a class="nav-link" href="#item-1">Photographer</a>
+            <nav class="nav nav-pills flex-column">
+                <a class="nav-link ml-3 my-1" href="#item-1-1">Tasveer</a>
+                <a class="nav-link ml-3 my-1" href="#item-1-2">Oza</a>
+            </nav>
+            <a class="nav-link" href="#item-2">Caterer</a>
+            <a class="nav-link" href="#item-3">DJ</a>
+            <nav class="nav nav-pills flex-column">
+                <a class="nav-link ml-3 my-1" href="#item-3-1">Skrillex</a>
+                <a class="nav-link ml-3 my-1" href="#item-3-2">Hardwell</a>
+            </nav>
         </nav>
     </nav>
 </div>
-<!--End of sidebar-->
+<!--End of scrollspy-->
 
 <button class="btn btn-info btn-lg" id="float_side"  data-toggle="modal" data-target="#exampleModal">
     Contact them all
@@ -95,8 +101,27 @@
 
 <!--Side scroll-->
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0" style="padding-bottom: 30vh">
-    <h1 id="item-<%=i%> "><%= vendor.service %>  :</h1>
-    <p id="item-1-2"></p>
+    <h1 id="item-1">Photographers :</h1>
+    <p id="item-1-1"></p>
+    <section id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 ">
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Tasveer Photographer</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
+                            <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <h5 id="item-1-2"></h5>
     <section id="gallery">
         <div class="container">
             <div class="row">
@@ -104,18 +129,77 @@
                     <div class="card">
                         <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title"><%= vendor.name %> </h5>
-                            <p class="card-text"><%= vendor.description.substring(0, 100) %> </p>
-                            <a href="/show<%=vendor._id%>>" class="btn btn-outline-success btn-sm">View them</a>
-                            <!--                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>-->
-                            <button class="btn btn-outline-warning btn-sm" disabled><%= vendor.avgStar %>  <i class="fa fa-star"></i></button>
+                            <h5 class="card-title">Tasveer Photographer</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
+                            <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <% } %>
+    <h1 id="item-2">Caterers :</h1>
+    <section id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Tasveer Photographer</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
+                            <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <h1 id="item-3">Disk Jockeys : </h1>
+    <h5 id="item-3-1"></h5>
+    <section id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Tasveer Photographer</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
+                            <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <h5 id="item-3-2"></h5>
+    <section id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Tasveer Photographer</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
+                            <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-shopping-cart"></i></a>
+                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
