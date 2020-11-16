@@ -9,7 +9,9 @@ const { isLoggedIn } = require('../middleware');
 const async = require("async")
 const crypto = require("crypto")
 const nodemailer = require("nodemailer")
-const Template = require("../models/template")
+const Template = require("../models/template");
+const user = require('../models/user');
+const vendor = require('../models/vendor');
 
 //HOME
 router.get("/", isLoggedIn, function(req, res){
@@ -48,7 +50,7 @@ router.get("/login", function(req, res){
 router.post("/login", passport.authenticate("local",{
     successRedirect: "/", 
     failureRedirect: "/login",
-    // failureFlash : true, 
+    failureFlash : true 
     // successFlash: "Welcome to Evento"
 }), function(req, res){
     
@@ -84,15 +86,15 @@ router.post('/forgot', function(req, res, next) {
       },
       function(token, user, done) {
         var smtpTransport = nodemailer.createTransport({
-          service: 'Gmail', 
+          service: 'FastMail', 
           auth: {
-            user: 'webeventohelp@gmail.com',
+            user: 'eventowebhelp@fastmail.com',
             pass: process.env.GMAILPW
           }
         });
         var mailOptions = {
           to: user.username,
-          from: 'webeventohelp@gmail.com',
+          from: 'eventowebhelp@fastmail.com',
           subject: 'Evento Password Reset',
           text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -114,6 +116,7 @@ router.post('/forgot', function(req, res, next) {
   router.get('/reset/:token', function(req, res) {
     User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
       if (!user) {
+        console.log('error', 'Password reset token is invalid or has expired.')
         req.flash('error', 'Password reset token is invalid or has expired.');
         return res.redirect('/forgot');
       }
@@ -126,6 +129,7 @@ router.post('/forgot', function(req, res, next) {
       function(done) {
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
           if (!user) {
+            console.log('error', 'Password reset token is invalid or has expired.')
             req.flash('error', 'Password reset token is invalid or has expired.');
             return res.redirect('back');
           }
@@ -141,6 +145,7 @@ router.post('/forgot', function(req, res, next) {
               });
             })
           } else {
+            console.log('error', 'Password dont match.')
               req.flash("error", "Passwords do not match.");
               return res.redirect('back');
           }
@@ -263,6 +268,38 @@ router.put("/:id/edit", function(req, res){
 router.get("/vendorsign", function(req, res){
     res.render("register_vendor");
 });
+
+router.post("/mail/:uid/:vid",async function(req, res){
+            var user = await User.findById(req.params.uid)
+            var vendor = await Vendor.findById(req.params.vid)
+            var arr = user["orders"]
+            arr.push(vendor)
+            console.log(user)
+            user.save()
+            var smtpTransport = await nodemailer.createTransport({
+              service: "FastMail", 
+              auth: {
+                user: 'eventowebhelp@fastmail.com',
+                pass: process.env.GMAILPW
+              }
+            });
+            var mailOptions = {
+              to: vendor.email,
+              from: 'eventowebhelp@fastmail.com',
+              subject: 'Evento Event Enquiry',
+              text: 'You are receiving this because' + user.name + 'has requested for a callback from the website.\n\n' +
+                'Please find the deatils of the user below:\n\n' +
+                'Name:'+ user.name + '\nEmail:' + user.username + '\nMobile Number:' + user.mobile +
+                'Thank you for using Evento.\n'
+            };
+            await smtpTransport.sendMail(mailOptions, function(err) {
+              console.log('mail sent');
+              req.flash('success', 'An e-mail has been sent to ' + vendor.name + ' with further instructions.');
+              res.json({"SUCESSS":vendor.name})
+            });
+        
+    
+})
 
 router.post("/vendorsign", function(req, res){
     var serv = req.body.service.toLowerCase()

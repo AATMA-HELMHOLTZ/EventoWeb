@@ -247,6 +247,9 @@
         <div class="jumbotron">
             <h3><i class="fa fa-phone"></i> Call us : <%= vendor.number %> </h3>
             <h3><i class="fa fa-paper-plane"></i> Email : <%= vendor.email %> </h3>
+            <form action="/mail/<%= currentUser._id %>/<%= vendor._id %> " method="post">
+                <input type="submit" value="Email them">
+            </form>
         </div>
     </div>
 </div>
