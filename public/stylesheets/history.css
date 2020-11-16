@@ -1,0 +1,16 @@
+.card{
+    width: 30rem;
+}
+
+div.container{
+    width: 20rem;
+    margin-top: 13vh;
+    margin-left: 30vh;
+}
+
+
+.btn:not(:disabled):not(.disabled) {
+    margin-top: 2rem;
+    margin-left: 15rem;
+    cursor: pointer;
+}
