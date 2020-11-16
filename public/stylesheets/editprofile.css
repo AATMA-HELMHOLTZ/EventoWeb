@@ -39,9 +39,7 @@ img{
 }
 
 .labels {
-    color: rgba(0,0,0,.5);
-    margin-top: 1.3rem;
-    font-size: 13px
+    font-size: 11px
 }
 
 .add-experience:hover {
@@ -49,4 +47,9 @@ img{
     color: #fff;
     cursor: pointer;
     border: solid 1px #9ed4d4;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #d2d7f5;
+    opacity: 1;
+    color: black;
 }

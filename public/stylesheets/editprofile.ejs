@@ -16,7 +16,7 @@
 
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/stylesheets/user_profile.css">
+    <link rel="stylesheet" href="/stylesheets/editprofile.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body>
@@ -52,58 +52,54 @@
 <!--End of navbar-->
 
 <div class="container rounded bg-white mt-5 mb-5"  style="padding-top: 5rem">
-    <div class="row" style="margin-left: 15rem">
-        <div class="col-md-4 border-right">
+    <div class="row">
+        <div class="col-md-6 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img class="rounded-circle mt-5" src="<%= user.img %> ">
                 <span class="font-weight-bold"><%= user.name.split(" ")[0] %> </span><span class="text-black-50"><%= user.username %> </span><span> </span>
             </div>
         </div>
-        <div class="col-md-8" >
+        <div class="col-md-6" >
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile</h4>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6">
-                        <label class="labels">Name</label> <br>
-                        <span class="details"><%= user.name %> </span>
-<!--                        <input type="text" class="form-control" placeholder="<%= user.name %> " value="" disabled>-->
+                        <label class="labels">Name</label>
+                        <input type="text" class="form-control" placeholder="<%= user.name %> " value="" disabled>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
-                        <label class="labels">Phone number</label> <br>
-                        <span class="details"><%= user.mobile %></span>
-<!--                        <input type="text" class="form-control" placeholder="<%= user.mobile %> " value="" disabled>-->
+                        <label class="labels">Phone number</label>
+                        <input type="text" class="form-control" placeholder="<%= user.mobile %> " value="" disabled>
                     </div>
                     <div class="col-md-12">
-                        <label class="labels">Email ID</label> <br>
-                        <span class="details"><%= user.username %></span>
-<!--                        <input type="text" class="form-control" placeholder="<%= user.username %> " value="" disabled>-->
+                        <label class="labels">Email ID</label>
+                        <input type="text" class="form-control" placeholder="<%= user.username %> " value="" disabled>
                     </div>
 
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6">
-                        <label class="labels">City</label><br>
-                        <span class="details"><%= user.city %> </span>
-<!--                        <input type="text" class="form-control" placeholder="<%= user.city %> " value="" disabled>-->
+                        <label class="labels">City</label>
+                        <input type="text" class="form-control" placeholder="<%= user.city %> " value="" disabled>
                     </div>
                 </div>
-<!--                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>-->
+                <!--                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>-->
                 <div class="d-flex justify-content-between align-items-center experience" style="margin-top: 1rem">
-                    <a href="" style="color: black; padding: 2px 2px; text-decoration: none;"><span class="border px-3 p-1 add-experience"><i class="fa fa-edit"></i>Edit Profile</span></a>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                 </div>
             </div>
         </div>
-<!--        <div class="col-md-4">-->
-<!--            <div class="p-3 py-5">-->
-<!--                <div class="d-flex justify-content-between align-items-center experience">-->
-<!--                    <span class="border px-3 p-1 add-experience"><i class="fa fa-edit"></i> Edit Profile</span>-->
-<!--                </div><br>-->
-<!--            </div>-->
-<!--        </div>-->
+        <!--        <div class="col-md-4">-->
+        <!--            <div class="p-3 py-5">-->
+        <!--                <div class="d-flex justify-content-between align-items-center experience">-->
+        <!--                    <span class="border px-3 p-1 add-experience"><i class="fa fa-edit"></i> Edit Profile</span>-->
+        <!--                </div><br>-->
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
 </div>
 
