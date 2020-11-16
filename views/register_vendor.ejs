@@ -29,7 +29,7 @@
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">Registration Info</h2>
-                <form method="POST" action="/vendorsign">
+                <form method="POST" action="/vendorsign" enctype="multipart/form-data">
                     <div class="input-group">
                         <input class="input--style-2" type="text" placeholder="Name" name="name">
                     </div>
@@ -53,7 +53,7 @@
                                 <option>Decorator</option>
                                 <option>Bakery</option>
                                 <option>Hospitality</option>
-                                <option>Music Band</option>
+                                <option>Band</option>
                             </select>
                             <div class="select-dropdown"></div>
                         </div>
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Image URL" name="img">
+                        <input class="input--style-2" type="file" placeholder="Images" name="images" multiple>
                     </div>
                     <div class="input-group">
                         <input class="input--style-2" type="text" placeholder="Give a description...." name="desc">

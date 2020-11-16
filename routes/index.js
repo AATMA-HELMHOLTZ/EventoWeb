@@ -12,6 +12,9 @@ const nodemailer = require("nodemailer")
 const Template = require("../models/template");
 const user = require('../models/user');
 const vendor = require('../models/vendor');
+var multer = require("multer")
+const {storage} = require("../cloudinary/index")
+var upload = multer({storage});
 
 //HOME
 router.get("/", isLoggedIn, function(req, res){
@@ -269,7 +272,7 @@ router.get("/vendorsign", function(req, res){
     res.render("register_vendor");
 });
 
-router.post("/mail/:uid/:vid",async function(req, res){
+router.post("/mail/:uid/:vid", async function(req, res){
             var user = await User.findById(req.params.uid)
             var vendor = await Vendor.findById(req.params.vid)
             var arr = user["orders"]
@@ -301,7 +304,8 @@ router.post("/mail/:uid/:vid",async function(req, res){
     
 })
 
-router.post("/vendorsign", function(req, res){
+router.post("/vendorsign", upload.array("images", 3),function(req, res){
+    console.log(req.files.map(f => (f.path))) 
     var serv = req.body.service.toLowerCase()
     var newVendor = {
         name: req.body.name,
@@ -309,7 +313,7 @@ router.post("/vendorsign", function(req, res){
         email: req.body.email, 
         service: serv,
         city: req.body.city,
-        img: req.body.img,
+        images : req.files.map(f => (f.path)),
         description: req.body.desc
     }
     Vendor.create(newVendor, function(err, newVend){
