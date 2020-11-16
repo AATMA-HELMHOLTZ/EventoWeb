@@ -182,7 +182,7 @@ router.get("/profile/:id", isLoggedIn,function(req, res){
         if (err){
             console.log(err)
         } else{
-            res.render("profile", {user: foundUser})
+            res.render("user_profile", {user: foundUser})
         }
     })
 });
@@ -287,15 +287,15 @@ router.post("/mail/:uid/:vid",async function(req, res){
               to: vendor.email,
               from: 'eventowebhelp@fastmail.com',
               subject: 'Evento Event Enquiry',
-              text: 'You are receiving this because' + user.name + 'has requested for a callback from the website.\n\n' +
-                'Please find the deatils of the user below:\n\n' +
-                'Name:'+ user.name + '\nEmail:' + user.username + '\nMobile Number:' + user.mobile +
-                'Thank you for using Evento.\n'
+              text: 'You are receiving this because ' + user.name + ' has requested for a callback from the website.\n\n' +
+              'Please find the details of the user below:\n\n' +
+              'Name: '+ user.name + '\nEmail: ' + user.username + '\nMobile Number: ' + user.mobile +
+              '\nThank you for using Evento.',
             };
             await smtpTransport.sendMail(mailOptions, function(err) {
               console.log('mail sent');
               req.flash('success', 'An e-mail has been sent to ' + vendor.name + ' with further instructions.');
-              res.json({"SUCESSS":vendor.name})
+              res.redirect("back")
             });
         
     

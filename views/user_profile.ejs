@@ -23,8 +23,8 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" src="https://www.w3schools.com/howto/img_avatar2.png">
-                <span class="font-weight-bold">Apurva</span><span class="text-black-50">apurva@email.com</span><span> </span>
+                <img class="rounded-circle mt-5" src="<%= user.img %> ">
+                <span class="font-weight-bold"><%= user.name.split(" ")[0] %> </span><span class="text-black-50"><%= user.username %> </span><span> </span>
             </div>
         </div>
         <div class="col-md-8" >
@@ -34,25 +34,25 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6">
-                        <label class="labels">Username</label>
-                        <input type="text" class="form-control" placeholder="Apurva" value="" disabled>
+                        <label class="labels">Name</label>
+                        <input type="text" class="form-control" placeholder="<%= user.name %> " value="" disabled>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
                         <label class="labels">Phone number</label>
-                        <input type="text" class="form-control" placeholder="9876543211" value="" disabled>
+                        <input type="text" class="form-control" placeholder="<%= user.mobile %> " value="" disabled>
                     </div>
                     <div class="col-md-12">
                         <label class="labels">Email ID</label>
-                        <input type="text" class="form-control" placeholder="apurva@email.com" value="" disabled>
+                        <input type="text" class="form-control" placeholder="<%= user.username %> " value="" disabled>
                     </div>
 
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <label class="labels">City</label>
-                        <input type="text" class="form-control" placeholder="Delhi" value="" disabled>
+                        <input type="text" class="form-control" placeholder="<%= user.city %> " value="" disabled>
                     </div>
                 </div>
 <!--                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>-->
