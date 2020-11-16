@@ -15,6 +15,7 @@ const vendor = require('../models/vendor');
 var multer = require("multer")
 const {storage} = require("../cloudinary/index")
 var upload = multer({storage});
+var moment = require("moment")
 
 //HOME
 router.get("/", isLoggedIn, function(req, res){
@@ -91,13 +92,13 @@ router.post('/forgot', function(req, res, next) {
         var smtpTransport = nodemailer.createTransport({
           service: 'FastMail', 
           auth: {
-            user: 'eventowebhelp@fastmail.com',
+            user: 'evento@fastmail.com',
             pass: process.env.GMAILPW
           }
         });
         var mailOptions = {
           to: user.username,
-          from: 'eventowebhelp@fastmail.com',
+          from: 'evento@fastmail.com',
           subject: 'Evento Password Reset',
           text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -276,19 +277,19 @@ router.post("/mail/:uid/:vid", async function(req, res){
             var user = await User.findById(req.params.uid)
             var vendor = await Vendor.findById(req.params.vid)
             var arr = user["orders"]
-            arr.push(vendor)
+            arr.push({"vendor":vendor, "date": moment().format("MMMM Do YYYY, h:mm a")})
             console.log(user)
             user.save()
             var smtpTransport = await nodemailer.createTransport({
               service: "FastMail", 
               auth: {
-                user: 'eventowebhelp@fastmail.com',
+                user: 'evento@fastmail.com',
                 pass: process.env.GMAILPW
               }
             });
             var mailOptions = {
               to: vendor.email,
-              from: 'eventowebhelp@fastmail.com',
+              from: 'evento@fastmail.com',
               subject: 'Evento Event Enquiry',
               text: 'You are receiving this because ' + user.name + ' has requested for a callback from the website.\n\n' +
               'Please find the details of the user below:\n\n' +
@@ -314,7 +315,8 @@ router.post("/vendorsign", upload.array("images", 3),function(req, res){
         service: serv,
         city: req.body.city,
         images : req.files.map(f => (f.path)),
-        description: req.body.desc
+        description: req.body.desc, 
+        minPrice : req.body.minPrice
     }
     Vendor.create(newVendor, function(err, newVend){
         if(err){

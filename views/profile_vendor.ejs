@@ -58,9 +58,9 @@
         <div class="col-md-6" >
             <div class="swiper-container" >
                 <div class="swiper-wrapper" style="height: 300px;">
-                    <div class="swiper-slide" ><img src="<%= vendor.gallery[0] %> " alt="" style="height: 300px;"></div>
-                    <div class="swiper-slide"><img src="<%= vendor.gallery[1] %> " alt="" style="height: 300px;"></div>
-                    <div class="swiper-slide"><img src="<%= vendor.gallery[2] %> " alt="" style="height: 300px;"></div>
+                    <% vendor.images.forEach(img =>{ %> 
+                    <div class="swiper-slide" ><img src="<%= img %> " alt="" style="height: 300px;"></div>
+                    <% }) %> 
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination" ></div>
