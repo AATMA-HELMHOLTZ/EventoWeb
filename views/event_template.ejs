@@ -22,182 +22,69 @@
 </head>
 <body>
 
-<!--NAVBAR-->
-<nav id="mainNavbar" class="navbar navbar-expand-md fixed-top" >
-    <a class="navbar-brand" href="/" id="logo"><span class="h1">EVENTO</span></a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true" style="background-color: #66bfbf">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="navb" class="navbar-collapse collapse hide">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/vendorsign">Register as vendor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/prev">Previous Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/support">Support</a>
-            </li>
-        </ul>
+<%- include("partials/navbar") %> 
 
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href=""><span class="fa fa-user"></span> User</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logout"><span class="fa fa-sign-out"></span> Logout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<!--End of navbar-->
-
-
-<!--Scrollspy-->
+    <!--Scrollspy-->
 <div class="sidenav">
     <nav id="navbar-example3" class="navbar navbar-light" style="margin-top: 5rem">
-        <a class="navbar-brand" href="#">What you will need for <br> this event :</a>
-        <nav class="nav nav-pills flex-column" >
-            <a class="nav-link" href="#item-1">Photographer</a>
-            <nav class="nav nav-pills flex-column">
-                <a class="nav-link ml-3 my-1" href="#item-1-1">Tasveer</a>
-                <a class="nav-link ml-3 my-1" href="#item-1-2">Oza</a>
+        <a class="navbar-brand" href="#">RECOMMENDATIONS</a>
+        <% var i = 1 %>
+        <% vendors.forEach(vendor => { %> 
+            <nav class="nav nav-pills flex-column" >
+                <a class="nav-link" href="#item-<%= i %>"><%= vendor.service.toUpperCase() %> </a>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ml-3 my-1" href="#item-<%= i %>-1" style="color: gray;"><%= vendor.name %> </a>
+                </nav>
             </nav>
-            <a class="nav-link" href="#item-2">Caterer</a>
-            <a class="nav-link" href="#item-3">DJ</a>
-            <nav class="nav nav-pills flex-column">
-                <a class="nav-link ml-3 my-1" href="#item-3-1">Skrillex</a>
-                <a class="nav-link ml-3 my-1" href="#item-3-2">Hardwell</a>
-            </nav>
-        </nav>
-    </nav>
+            <% i++ %> 
+        <% }) %>
+    </nav>    
 </div>
 <!--End of scrollspy-->
-
-<!--<button class="btn btn-info btn-lg" id="float_side"  data-toggle="modal" data-target="#exampleModal">-->
-<!--    Contact them all-->
-<!--</button>-->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Success</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
+<% if (success && success.length) { %>
+    <div class="alert alert-success alert-dismissable fade show" role="alert" style="margin-top: 6rem;">
+        <%= success %> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-</div>
-
+<% } %>
+<% if (error && error.length) { %>
+    <div class="alert alert-danger alert-dismissable fade show" role="alert" style="margin-top: 6rem;">
+        <%= error %> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
 <!--Side scroll-->
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0" style="padding-bottom: 30vh">
-    <h1 id="item-1">Photographers :</h1>
-    <p id="item-1-1"></p>
-    <section id="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 ">
-                    <div class="card">
-                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Tasveer Photographer</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
-                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
-                            <a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-phone"></i> Contact them</a>
+    <% i = 1 %> 
+    <% vendors.forEach(vendor => { %>
+        <h1 id="item-<%=i%>"><%= vendor.service.toUpperCase() %> </h1>
+        <p id="item-<%= i %>-1"></p>
+        <section id="gallery">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 ">
+                        <div class="card">
+                            <img src="<%= vendor.images[0] %> " alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= vendor.name %> </h5>
+                                <p class="card-text"><%= vendor.description.substring(0, 150)%>...</p>
+                                <a href="/show/<%=vendor._id%>" class="btn btn-outline-success btn-sm">View more</a>
+                                <button class="btn btn-outline-warning btn-sm" disabled><%= vendor.avgStar %> <i class="fa fa-star"></i></button>
+                                <form action="/mail/<%= currentUser._id%>/<%= vendor._id%>" method="post" style="margin: 0; display: inline;">
+                                    <button type="submit" class="btn btn-outline-info btn-sm"><i class="fa fa-envelope"></i> Contact them</button>
+                                </form>
+                                <% i++ %>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <h5 id="item-1-2"></h5>
-    <section id="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card">
-                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Tasveer Photographer</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
-                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
-                            <a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-phone"></i> Contact them</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <h1 id="item-2">Caterers :</h1>
-    <section id="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card">
-                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Tasveer Photographer</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
-                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
-                            <a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-phone"></i> Contact them</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <h1 id="item-3">Disk Jockeys : </h1>
-    <h5 id="item-3-1"></h5>
-    <section id="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card">
-                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Tasveer Photographer</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
-                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
-                            <a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-phone"></i> Contact them</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <h5 id="item-3-2"></h5>
-    <section id="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card">
-                        <img src="https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Tasveer Photographer</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-                            <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View them</a>
-                            <button class="btn btn-outline-warning btn-sm" disabled>5 <i class="fa fa-star"></i></button>
-                            <a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-phone"></i> Contact them</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section> 
+    <% }) %>    
 </div>
 
 

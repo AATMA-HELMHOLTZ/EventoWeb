@@ -1,0 +1,34 @@
+    <!--NAVBAR-->
+    <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md fixed-top">
+        <a class="navbar-brand" href="/"><span class="h1">EVENTO</span></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true" style="background-color: #66bfbf">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navb" class="navbar-collapse collapse hide">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/vendorsign">Register as vendor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/history/<%= currentUser._id %> ">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/support">Support</a>
+                </li>
+            </ul>
+    
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile/<%= currentUser._id %> ">
+                        <img class="rounded-circle " src="<%= currentUser.img %> " style="height: 2rem; width: 2rem; border-radius: 50%; margin-bottom: 0.5rem;" >
+                        <%= currentUser.name %>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><span class="fa fa-sign-out"></span> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--End of navbar-->
+    

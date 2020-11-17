@@ -22,36 +22,8 @@
     <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body style="padding-top: 50px;">
-<!--NAVBAR-->
-<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md fixed-top">
-    <a class="navbar-brand" href="/"><span class="h1">EVENTO</span></a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true" style="background-color: #66bfbf">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="navb" class="navbar-collapse collapse hide">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/vendorsign">Register as vendor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/prev">Previous Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/support">Support</a>
-            </li>
-        </ul>
 
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href=""><span class="fa fa-user"></span> User</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logout"><span class="fa fa-sign-out"></span> Logout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<!--END OF NAVBAR-->
+    <%- include("partials/navbar") %>
 
 <div class="container" id="product-section" >
     <%- include("partials/flash") %> 
@@ -85,7 +57,7 @@
                     </p>
                 </div>
                 <div class="col-md-12">
-                    <h4>Price: 25000 <i class="fa fa-inr"> /-</i> day</h4>
+                    <h4>Price: <%= vendor.minPrice %>  <i class="fa fa-inr"> /-</i> onwards</h4>
                 </div>
             </div>
         </div>
@@ -111,132 +83,47 @@
 <!-- Tab panes -->
 <div class="tab-content" >
     <div role="tabpanel" class="tab-pane" id="reviews">
-<!--        <div class="container" style="margin-left: 1px">-->
-<!--            <div class="row">-->
-<!--                <div class="col-xs-12 col-md-6">-->
-<!--                    <div class="well well-sm">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-xs-12 col-md-6 text-center">-->
-<!--                                <h1 class="rating-num">-->
-<!--                                    <% var star, sum  = 0 %>-->
-<!--                                    <% vendor.ratings.forEach(x =>{ %>-->
-<!--                                        <%sum += x.star%> -->
-<!--                                    <% }) %>-->
-<!--                                    <% star = sum / vendor.ratings.length %>-->
-<!--                                    <%= star %> </h1>-->
-<!--                                <div class="rating">-->
-<!--                                    <span class="fa fa-star"></span><span class="fa fa-star">-->
-<!--                            </span><span class="fa fa-star"></span><span class="fa fa-star">-->
-<!--                            </span><span class="fa fa-star-o"></span>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <span class="fa fa-user"></span> <%= vendor.ratings.length %>  total-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-xs-12 col-md-6">-->
-<!--                                <div class="row rating-desc">-->
-<!--                                    <div class="col-xs-3 col-md-3 text-right">-->
-<!--                                        <span class="fa fa-star"></span>5-->
-<!--                                    </div>-->
-<!--                                    <div class="col-xs-8 col-md-9">-->
-<!--                                        <div class="progress progress-striped">-->
-<!--                                            <div class="progress-bar bg-info " role="progressbar" aria-valuenow="20"-->
-<!--                                                 aria-valuemin="0" aria-valuemax="100" style="width: 60% ">-->
-<!--                                                <span class="sr-only"><%= %> </span>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; end 5 &ndash;&gt;-->
-<!--                                    <div class="col-xs-3 col-md-3 text-right">-->
-<!--                                        <span class="fa fa-star"></span>4-->
-<!--                                    </div>-->
-<!--                                    <div class="col-xs-8 col-md-9">-->
-<!--                                        <div class="progress">-->
-<!--                                            <div class="progress-bar bg-info " role="progressbar" aria-valuenow="20"-->
-<!--                                                 aria-valuemin="0" aria-valuemax="100" style="width: 60%">-->
-<!--                                                <span class="sr-only">60%</span>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; end 4 &ndash;&gt;-->
-<!--                                    <div class="col-xs-3 col-md-3 text-right">-->
-<!--                                        <span class="fa fa-star"></span>3-->
-<!--                                    </div>-->
-<!--                                    <div class="col-xs-8 col-md-9">-->
-<!--                                        <div class="progress">-->
-<!--                                            <div class="progress-bar bg-info " role="progressbar" aria-valuenow="20"-->
-<!--                                                 aria-valuemin="0" aria-valuemax="100" style="width: 40%">-->
-<!--                                                <span class="sr-only">40%</span>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; end 3 &ndash;&gt;-->
-<!--                                    <div class="col-xs-3 col-md-3 text-right">-->
-<!--                                        <span class="fa fa-star"></span>2-->
-<!--                                    </div>-->
-<!--                                    <div class="col-xs-8 col-md-9">-->
-<!--                                        <div class="progress">-->
-<!--                                            <div class="progress-bar bg-info " role="progressbar" aria-valuenow="20"-->
-<!--                                                 aria-valuemin="0" aria-valuemax="100" style="width: 20%">-->
-<!--                                                <span class="sr-only">20%</span>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; end 2 &ndash;&gt;-->
-<!--                                    <div class="col-xs-3 col-md-3 text-right">-->
-<!--                                        <span class="fa fa-star"></span> 1-->
-<!--                                    </div>-->
-<!--                                    <div class="col-xs-8 col-md-9">-->
-<!--                                        <div class="progress">-->
-<!--                                            <div class="progress-bar bg-info " role="progressbar" aria-valuenow="80"-->
-<!--                                                 aria-valuemin="0" aria-valuemax="100" style="width: 15%">-->
-<!--                                                <span class="sr-only">15%</span>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; end 1 &ndash;&gt;-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; end row &ndash;&gt;-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
         <div class="reviews">
-            <div class="row blockquote review-item">
-                <div class="col-md-3 text-center">
-                    <img class="rounded-circle reviewer" src="http://standaloneinstaller.com/upload/avatar.png">
-                    <div class="caption">
-                        <small>by <a href="#oza" style="color: #66bfbf">Oza</a></small>
+            <% vendor["ratings"].forEach(obj => { %>
+                <div class="row blockquote review-item" style="margin-top: 2rem;">
+                    <div class="col-md-3 text-center">
+                        <img class="rounded-circle reviewer" src="<%= obj.author.img %> ">
+                        <div class="caption">
+                            <small>by <%= obj.author.name %> </small>
+                        </div>
                     </div>
-
+                    <div class="col-md-9">
+                        <% for( let i = 0; i < 5; i++ ) { %>
+                            <% if (i < Math.floor(obj.star)) { %>
+                                <i class="fa fa-star"></i>
+                            <% } else{%>
+                                <i class="fa fa-star-o"></i>
+                        <% }} %>
+                        <!-- <div class="ratebox text-center" data-id="0" data-rating="5"></div> -->
+                        <p> <%= obj.desc %> </p>
+                        <small class="review-date"><%= obj.date %> </small>
+                    </div>
                 </div>
-                <div class="col-md-9">
-                    <h4>Worth the money</h4>
-                    <div class="ratebox text-center" data-id="0" data-rating="5"></div>
-                    <p class="review-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab autem delectus distinctio dolor dolorem eaque, enim exercitationem incidunt ipsum natus odit omnis quae quasi saepe veritatis vitae? Ex, quod?  </p>
-                    <small class="review-date">March 26, 2077</small>
-                </div>
-            </div>
+            <% }) %>
         </div>
     </div>
+            
     <div role="tabpanel" id="rate" class="tab-pane">
         <div class="container" style="box-shadow: 2px 2px 2px 2px gray; margin-bottom: 3rem">
             <h3 style="padding-top: 0.3rem">Leave a review :</h3>
             <div class="container" style=" margin-top: 1rem; padding-bottom: 2rem;">
-                <form action="">
-                    <textarea name="review box" id="" cols="130" rows="5" placeholder="Enter your review here..."></textarea>
-                </form>
-                <div class="row" style="margin-left: 56rem">
-                    <div class="col-lg-12">
-                        <div class="star-rating">
-                            <input type="text" placeholder="Rate " style="width: 3rem">/5
-<!--                            <input type="hidden" name="whatever1" class="rating-value" value="2.56">-->
+                <form action="/rate/<%= currentUser._id %>/<%=vendor._id%> " method="POST">
+                    <textarea id="" cols="130" rows="5" placeholder="Enter your review here..." name="description" style="width: 60.8rem;"></textarea>
+                    <div class="row" style="margin-left: 56rem">
+                        <div class="col-lg-12">
+                            <div class="star-rating">
+                                <input type="number" max="5" min="1" placeholder="Rate " style="width: 4rem" name = "star">/5
+    <!--                            <input type="hidden" name="whatever1" class="rating-value" value="2.56">-->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <button type="button" class="btn btn-primary" style="margin-left: 56.3rem; margin-top: 1rem;">Submit</button>
+                    <input type="submit" class="btn btn-primary" style="margin-left: 56.3rem; margin-top: 1rem;" value="Submit">
+                </form>
             </div>
         </div>
     </div>

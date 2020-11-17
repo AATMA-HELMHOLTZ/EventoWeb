@@ -5,7 +5,7 @@
 img{
     width: 12rem;
     height: 12rem;
-    border: 1px solid black;
+    
 }
 
 .form-control:focus {
@@ -39,7 +39,9 @@ img{
 }
 
 .labels {
-    font-size: 11px
+    color: rgba(0,0,0,.5);
+    margin-top: 1.3rem;
+    font-size: 13px
 }
 
 .add-experience:hover {
@@ -48,8 +50,9 @@ img{
     cursor: pointer;
     border: solid 1px #9ed4d4;
 }
-.form-control:disabled, .form-control[readonly] {
-    background-color: #d2d7f5;
-    opacity: 1;
-    color: black;
+
+select{
+    padding-right: 6rem;
+    border: white;
+    margin-left: -0.25rem;
 }

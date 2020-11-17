@@ -28,8 +28,8 @@ router.get("/signup", function(req, res){
 });
 
 //signup user
-router.post("/signup", function(req, res){
-    var obj = {name: req.body.name, username: req.body.username, mobile: req.body.phone, city: req.body.city};
+router.post("/signup", upload.single("image"),function(req, res){
+    var obj = {name: req.body.name, username: req.body.username, mobile: req.body.phone, city: req.body.city, img: req.file.path};
     User.register(obj, req.body.password, function(err, newUser){
         if(err){
             req.flash("error", err.message)
@@ -117,70 +117,70 @@ router.post('/forgot', function(req, res, next) {
     });
   });
   
-  router.get('/reset/:token', function(req, res) {
-    User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-      if (!user) {
-        console.log('error', 'Password reset token is invalid or has expired.')
-        req.flash('error', 'Password reset token is invalid or has expired.');
-        return res.redirect('/forgot');
-      }
-      res.render('reset', {token: req.params.token});
-    });
+router.get('/reset/:token', function(req, res) {
+  User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+    if (!user) {
+      console.log('error', 'Password reset token is invalid or has expired.')
+      req.flash('error', 'Password reset token is invalid or has expired.');
+      return res.redirect('/forgot');
+    }
+    res.render('reset', {token: req.params.token});
   });
+});
   
-  router.post('/reset/:token', function(req, res) {
-    async.waterfall([
-      function(done) {
-        User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-          if (!user) {
-            console.log('error', 'Password reset token is invalid or has expired.')
-            req.flash('error', 'Password reset token is invalid or has expired.');
-            return res.redirect('back');
-          }
-          if(req.body.password === req.body.confirm) {
-            user.setPassword(req.body.password, function(err) {
-              user.resetPasswordToken = undefined;
-              user.resetPasswordExpires = undefined;
-  
-              user.save(function(err) {
-                req.logIn(user, function(err) {
-                  done(err, user);
-                });
-              });
-            })
-          } else {
-            console.log('error', 'Password dont match.')
-              req.flash("error", "Passwords do not match.");
-              return res.redirect('back');
-          }
-        });
-      },
-      function(user, done) {
-        var smtpTransport = nodemailer.createTransport({
-          service: 'Gmail', 
-          auth: {
-            user: 'learntocodeinfo@gmail.com',
-            pass: process.env.GMAILPW
-          }
-        });
-        var mailOptions = {
-          to: user.username,
-          from: 'learntocodeinfo@mail.com',
-          subject: 'Your password has been changed',
-          text: 'Hello,\n\n' +
-            'This is a confirmation that the password for your account ' + user.username + ' has just been changed.\n'
-        };
-        smtpTransport.sendMail(mailOptions, function(err) {
-          req.flash('success', 'Success! Your password has been changed.');
-          done(err);
-        });
-      }
-    ], function(err) {
-      res.redirect('/');
-    });
-  });
+router.post('/reset/:token', function(req, res) {
+  async.waterfall([
+    function(done) {
+      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+        if (!user) {
+          console.log('error', 'Password reset token is invalid or has expired.')
+          req.flash('error', 'Password reset token is invalid or has expired.');
+          return res.redirect('back');
+        }
+        if(req.body.password === req.body.confirm) {
+          user.setPassword(req.body.password, function(err) {
+            user.resetPasswordToken = undefined;
+            user.resetPasswordExpires = undefined;
 
-//View Profile
+            user.save(function(err) {
+              req.logIn(user, function(err) {
+                done(err, user);
+              });
+            });
+          })
+        } else {
+          console.log('error', 'Password dont match.')
+            req.flash("error", "Passwords do not match.");
+            return res.redirect('back');
+        }
+      });
+    },
+    function(user, done) {
+      var smtpTransport = nodemailer.createTransport({
+        service: 'Gmail', 
+        auth: {
+          user: 'learntocodeinfo@gmail.com',
+          pass: process.env.GMAILPW
+        }
+      });
+      var mailOptions = {
+        to: user.username,
+        from: 'learntocodeinfo@mail.com',
+        subject: 'Your password has been changed',
+        text: 'Hello,\n\n' +
+          'This is a confirmation that the password for your account ' + user.username + ' has just been changed.\n'
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        req.flash('success', 'Success! Your password has been changed.');
+        done(err);
+      });
+    }
+  ], function(err) {
+    res.redirect('/');
+  });
+});
+
+//View user Profile
 router.get("/profile/:id", isLoggedIn,function(req, res){
     User.findById(req.params.id, function(err, foundUser){
         if (err){
@@ -190,6 +190,31 @@ router.get("/profile/:id", isLoggedIn,function(req, res){
         }
     })
 });
+
+//Edit Profile - show form
+router.get("/profile/:id/edit", isLoggedIn,function(req, res){
+  User.findById(req.params.id, function(err, user){
+      res.render("editprofile", {user:user});
+   });
+});
+
+//Edit Profile - login and put req
+router.put("/profile/:id/edit", function(req, res){
+  var obj = {
+    name: req.body.name,
+    mobile: req.body.mobile,
+    city: req.body.city
+  }
+  User.findOneAndUpdate({_id: req.params.id}, obj, function(err, updated){
+      if (err){
+          console.log(err);
+      } else {
+        req.flash("success", "Updated profile")
+        res.redirect("/profile/" + req.params.id);
+      }
+  });
+});
+
 
 
 //Show Vendor Lists
@@ -215,7 +240,7 @@ router.get("/show/:vid", isLoggedIn, function(req, res){
 })
 
 //EVENT TEMPLATES
-router.get("/template/:event", async function(req, res){
+router.get("/template/:event", isLoggedIn,async function(req, res){
     var temp = await Template.find({});
     var event = req.params.event
     // console.log(typeof(e))  
@@ -237,7 +262,7 @@ router.get("/template/:event", async function(req, res){
     console.log(arr)
     for (let i = 0; i < arr.length; i++) {
         var service = arr[i];
-        var t = await Vendor.find({service:service});
+        var t = await Vendor.find({service:service}).sort({"avgStar": -1});
         console.log(t[0])
         vendors.push(t[0])
     }
@@ -246,32 +271,12 @@ router.get("/template/:event", async function(req, res){
     });
     
 //History
-router.get("/history/:id", async function(req, res){
+router.get("/history/:id", isLoggedIn,async function(req, res){
     var user = await User.findById(req.params.id)
     var orders = user.orders
+    orders = orders.reverse()
     res.render("history", {orders:orders})
 })
-
-
-//Edit Profile - show form
-router.get("/profile", function(req, res){
-    // User.findById(req.params.id, function(err, user){
-        res.render("user_profile");
-    // });
-});
-
-
-//Edit Profile - login and put req
-router.put("/:id/edit", function(req, res){
-    User.findOneAndUpdate({_id: req.params.id}, req.body.user, function(err, updated){
-        if (err){
-            console.log(err);
-        } else {
-            res.redirect("/profile/" + req.params.id);
-        }
-    });
-});
-
 
 //SignUp as vendor
 router.get("/vendorsign", function(req, res){
@@ -279,35 +284,57 @@ router.get("/vendorsign", function(req, res){
 });
 
 router.post("/mail/:uid/:vid", async function(req, res){
-            var user = await User.findById(req.params.uid)
-            var vendor = await Vendor.findById(req.params.vid)
-            var arr = user["orders"]
-            arr.push({"vendor":vendor, "date": moment().format("MMMM Do YYYY, h:mm a")})
-            console.log(user)
-            user.save()
-            var smtpTransport = await nodemailer.createTransport({
-              service: "FastMail", 
-              auth: {
-                user: 'evento@fastmail.com',
-                pass: process.env.GMAILPW
-              }
-            });
-            var mailOptions = {
-              to: vendor.email,
-              from: 'evento@fastmail.com',
-              subject: 'Evento Event Enquiry',
-              text: 'You are receiving this because ' + user.name + ' has requested for a callback from the website.\n\n' +
-              'Please find the details of the user below:\n\n' +
-              'Name: '+ user.name + '\nEmail: ' + user.username + '\nMobile Number: ' + user.mobile +
-              '\nThank you for using Evento.',
-            };
-            await smtpTransport.sendMail(mailOptions, function(err) {
-              console.log('mail sent');
-              req.flash('success', 'An e-mail has been sent to ' + vendor.name + '.\nPlease wait for them to contact you');
-              res.redirect("back")
-            });
-        
-    
+  var user = await User.findById(req.params.uid)
+  var vendor = await Vendor.findById(req.params.vid)
+  var arr = user["orders"]
+  arr.push({"vendor":vendor, "date": moment().format("MMMM Do YYYY, h:mm a")})
+  console.log(user)
+  user.save()
+  var smtpTransport = await nodemailer.createTransport({
+    service: "FastMail", 
+    auth: {
+      user: 'evento@fastmail.com',
+      pass: process.env.GMAILPW
+    }
+  });
+  var mailOptions = {
+    to: vendor.email,
+    from: 'evento@fastmail.com',
+    subject: 'Evento Event Enquiry',
+    text: 'You are receiving this because ' + user.name + ' has requested for a callback from the website.\n\n' +
+    'Please find the details of the user below:\n\n' +
+    'Name: '+ user.name + '\nEmail: ' + user.username + '\nMobile Number: ' + user.mobile +
+    '\nThank you for using Evento.',
+  };
+  await smtpTransport.sendMail(mailOptions, function(err) {
+    console.log('mail sent');
+    req.flash('success', 'An e-mail has been sent to ' + vendor.name + '.\nPlease wait for them to contact you');
+    res.redirect("back")
+  }); 
+})
+
+router.post("/rate/:uid/:vid", isLoggedIn,async function(req, res){
+  let vendor = await Vendor.findById(req.params.vid)
+  let user = await User.findById(req.params.uid)
+  console.log(req.body.description)
+  var obj = {
+    "author": user, 
+    "desc": req.body.description,   
+    "star": req.body.star,
+    "date": moment().format("MMMM Do YYYY, h:mm a")
+  }
+  var sum = 0
+  vendor.ratings.push(obj)
+  vendor.ratings.forEach(o =>{
+    var temp = parseInt(o.star) || 0
+    sum += temp
+  })
+  console.log(sum)
+  vendor.avgStar = (sum / vendor.ratings.length).toFixed(1)
+  vendor.save()
+  console.log(vendor.ratings)
+  req.flash("success", "Added rating succesfully")
+  res.redirect("back")
 })
 
 router.post("/vendorsign", upload.array("images", 3),function(req, res){
@@ -315,7 +342,7 @@ router.post("/vendorsign", upload.array("images", 3),function(req, res){
     var serv = req.body.service.toLowerCase()
     var newVendor = {
         name: req.body.name,
-        phone: req.body.phone,
+        number: req.body.phone,
         email: req.body.email, 
         service: serv,
         city: req.body.city,
@@ -335,12 +362,9 @@ router.post("/vendorsign", upload.array("images", 3),function(req, res){
     })
 })
 
-
-// //Register the vendor
-// router.post("/vendorsign", function(req, res){
-//     var obj = {name: req.body.};
-
-// })
+router.get("/support", isLoggedIn,function(req, res){
+  res.render("support")
+})
 
 //LOGOUT
 router.get("/logout", function(req, res){
@@ -348,6 +372,5 @@ router.get("/logout", function(req, res){
     req.flash("success", "Logged you out");
     res.redirect("/login");
 });
-
 
 module.exports = router;

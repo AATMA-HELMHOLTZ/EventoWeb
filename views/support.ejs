@@ -27,30 +27,14 @@
 <!--Side bar-->
 <div class="sidenav">
     <br><br><br>
-    <h2 style="margin-left: 3rem; color: #000000;">HISTORY</h2>
+    <h2 style="margin-left: 3rem; color: #000000;">SUPPORT</h2>
 </div>
 
-<% orders.forEach(obj =>{ %>
-    <div class="container">
-        <div class="card mb-3" >
-            <div class="row no-gutters">
-                <div class="col-md-6">
-                    <img src="<%= obj.vendor.images[0] %> " class="card-img" alt="card images">
-                </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <h4 class="card-title" >Vendor : <%= obj.vendor.name %> </h4>
-                        <h6 style="color: rgba(151, 140, 140, 0.856);"><%= obj.date %> </h6>
-                        <a href="/show/<%= obj.vendor._id %> " class="btn btn-outline-info btn-sm">View</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  
-<% }) %>  
-
-
-
+<div class="container ml-12 mt-7">
+    <div class="jumbotron">
+        <h3>Contact us: evento@fastmail.com</h3>
+    </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
