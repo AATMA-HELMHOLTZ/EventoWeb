@@ -498,3 +498,9 @@ input {
         padding: 60px 50px;
     }
 }
+
+label {
+    font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}

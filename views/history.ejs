@@ -53,24 +53,30 @@
 <!--END OF NAVBAR-->
 
 <!--Side bar-->
-<div class="sidenav"></div>
+<div class="sidenav">
+    <!-- <br><br><br>
+    <h1>History</h1> -->
+</div>
 
-<div class="container">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="/assets/2.jpg" class="card-img" alt="card images">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h3 class="card-title">Vendor : Ojha Photos</h3>
-                    <h5>Date : 9/11/2020</h5>
-                    <a href="profile_vendor.html" class="btn btn-outline-success btn-sm">View</a>
+<% orders.forEach(obj =>{ %>
+    <div class="container">
+        <div class="card mb-3" >
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img src="<%= obj.vendor.images[0] %> " class="card-img" alt="card images">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h4 class="card-title" >Vendor : <%= obj.vendor.name %> </h4>
+                        <h6 style="color: rgba(151, 140, 140, 0.856);"><%= obj.date %> </h6>
+                        <a href="/show/<%= obj.vendor._id %> " class="btn btn-outline-info btn-sm">View</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div>  
+<% }) %>  
+
 
 
 

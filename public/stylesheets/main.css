@@ -13,9 +13,15 @@ header{
     margin-bottom: 11vh;
 }
 
+.alert{
+    justify-content: center;
+    display: flex;
+}
+
 footer{
     background: #66bfbf;
 }
+
 
 .titles{
     font-size: 2.5rem;

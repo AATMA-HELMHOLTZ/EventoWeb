@@ -37,7 +37,7 @@ router.post("/signup", function(req, res){
             return res.render("signup");
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to Evento " + newUser.name)
+            req.flash("success", "Welcome to Evento, " + newUser.name)
             res.redirect("/");
         });
     });
@@ -54,8 +54,8 @@ router.get("/login", function(req, res){
 router.post("/login", passport.authenticate("local",{
     successRedirect: "/", 
     failureRedirect: "/login",
-    failureFlash : true 
-    // successFlash: "Welcome to Evento"
+    failureFlash : true ,
+    successFlash: "Welcome to Evento"
 }), function(req, res){
     
 });
@@ -245,7 +245,12 @@ router.get("/template/:event", async function(req, res){
     res.render("event_template", {vendors:vendors, len : len})
     });
     
-
+//History
+router.get("/history/:id", async function(req, res){
+    var user = await User.findById(req.params.id)
+    var orders = user.orders
+    res.render("history", {orders:orders})
+})
 
 
 //Edit Profile - show form
@@ -298,7 +303,7 @@ router.post("/mail/:uid/:vid", async function(req, res){
             };
             await smtpTransport.sendMail(mailOptions, function(err) {
               console.log('mail sent');
-              req.flash('success', 'An e-mail has been sent to ' + vendor.name + ' with further instructions.');
+              req.flash('success', 'An e-mail has been sent to ' + vendor.name + '.\nPlease wait for them to contact you');
               res.redirect("back")
             });
         
@@ -324,6 +329,7 @@ router.post("/vendorsign", upload.array("images", 3),function(req, res){
         }
         else{
             console.log("created" + newVend)
+            req.flash("success", "Created vendor.")
             res.redirect("/")
         }
     })

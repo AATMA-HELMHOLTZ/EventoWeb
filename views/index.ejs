@@ -25,6 +25,7 @@
 
 <body>
 
+    
     <!--NAVBAR-->
     <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md fixed-top">
     <a class="navbar-brand" href="/"><span class="h1">EVENTO</span></a>
@@ -37,7 +38,7 @@
                 <a class="nav-link" href="/vendorsign">Register as vendor</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/history">History</a>
+                <a class="nav-link" href="/history/<%= currentUser._id %> ">History</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/support">Support</a>
@@ -56,9 +57,12 @@
 </nav>
 <!--End of navbar-->
 
+
 <!--Search box-->
     <header>
+        
         <form action="" >
+            <div class="input-group" id = "flash"><%- include("partials/flash") %></div>
             <div class="input-group input-group-lg mb-100">
                     <input type="search" placeholder="Vendors, Venues and more" aria-describedby="button-addon5" class="form-control">
                 <div class="input-group-append" >
@@ -67,6 +71,8 @@
             </div>
         </form>
     </header>
+    
+
 <!--    End of text in container-->
 
 <!--Cards Carousel - Event pack-->
